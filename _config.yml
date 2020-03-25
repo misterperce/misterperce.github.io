@@ -3,7 +3,7 @@ title: na-che-x
 tagline: Nancy's Experimental Website
 url: https://na-che-x.github.io/
 paginate: 5
-baseurl: "/about"
+baseurl: /about
 permalink: pretty
 
 # Gems
