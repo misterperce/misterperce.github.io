@@ -1,9 +1,9 @@
 # Setup
 title: na-che-x
 tagline: Nancy's Experimental Website
-url: https://na-che-x.github.io/
+url: https://na-che-x.github.io/about.html
 paginate: 5
-baseurl: https://na-che-x.github.io/about
+baseurl: ""
 permalink: pretty
 
 # Gems
