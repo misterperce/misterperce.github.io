@@ -8,6 +8,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.25;
   color: #313131;
   text-rendering: optimizeLegibility;
+  font-family: "Gotu";
 }
 
 h1 {
@@ -32,6 +33,13 @@ h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+}
+
+small {
+  font-family: "Work Sans";
+  font-size: 75%;
+  font-weight: 400;
+  opacity: .5;
 }
 
 ul, ol, dl {
