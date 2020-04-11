@@ -6,10 +6,14 @@
 code,
 pre {
   font-family: $code-font-family;
+
 }
 
 code {
-  font-size: 85%;
+  // font-size: 85%;
+  background-color: #f9f9f9;
+  border-radius: .25rem;
+  padding: .1rem;
 }
 
 pre {
@@ -17,14 +21,15 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   overflow: auto;
+
 }
 
 .highlight {
-  padding: 1rem;
+  padding: .8rem;
   margin-bottom: 1rem;
   background-color: #f9f9f9;
   border-radius: .25rem;
-
+  font-size: .8rem;
   pre {
     margin-bottom: 0;
   }
@@ -32,6 +37,7 @@ pre {
   // Triple backticks (code fencing) doubles the .highlight elements
   .highlight {
     padding: 0;
+
   }
 }
 
