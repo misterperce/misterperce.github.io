@@ -71,7 +71,7 @@ robinhood_response = pd.merge(robinhood_response, instrument_translation_df, how
 robinhood_response = robinhood_response[['last_transaction_at','side','symbol','quantity','average_price']]
 ```
 
-Lastly, I convert the date into a datetime data type and the units and prices into numeric data types. :smiley:
+Lastly, I convert the date into a datetime data type and the units and prices into numeric data types.
 ```python
 robinhood_response['date']=pd.to_datetime(robinhood_response['date']).dt.date
 robinhood_response[['units','price']] = robinhood_response[['units','price']].apply(pd.to_numeric, errors='coerce', axis=1)
