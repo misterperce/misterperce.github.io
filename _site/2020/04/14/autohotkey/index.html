@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>
+    
+      Simple scripting with AutoHotKey &middot; na-che-x
+    
+  </title>
+
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico">
+  <link rel="alternate" type="application/atom+xml" title="na-che-x" href="/atom.xml">
+  <link href="https://fonts.googleapis.com/css?family=Gotu|Work+Sans&display=swap" rel="stylesheet">
+  <!-- Begin Jekyll SEO tag v2.6.1 -->
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="Simple scripting with AutoHotKey" />
+<meta name="author" content="Nancy Xia" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase such that if I typed “sss” it would automatically type “select * from limit 100”. I couldn’t be happier with the results. This is how I did it:" />
+<meta property="og:description" content="I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase such that if I typed “sss” it would automatically type “select * from limit 100”. I couldn’t be happier with the results. This is how I did it:" />
+<link rel="canonical" href="http://localhost:4000/2020/04/14/autohotkey/" />
+<meta property="og:url" content="http://localhost:4000/2020/04/14/autohotkey/" />
+<meta property="og:site_name" content="na-che-x" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-04-14T00:00:00-07:00" />
+<script type="application/ld+json">
+{"dateModified":"2020-04-14T00:00:00-07:00","datePublished":"2020-04-14T00:00:00-07:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/04/14/autohotkey/"},"url":"http://localhost:4000/2020/04/14/autohotkey/","author":{"@type":"Person","name":"Nancy Xia"},"description":"I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase such that if I typed “sss” it would automatically type “select * from limit 100”. I couldn’t be happier with the results. This is how I did it:","headline":"Simple scripting with AutoHotKey","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+</head>
+
+
+  <body>
+
+    <div class="container content">
+      <header class="masthead">
+        <h3 class="masthead-title">
+          <a href="/" title="Home">na-che-x</a>
+          <br/>
+          <small>Nancy's Experimental Website</small>
+        </h3>
+      </header>
+
+      <main>
+        <article class="post">
+  <h1 class="post-title">Simple scripting with AutoHotKey</h1>
+  <time datetime="2020-04-14T00:00:00-07:00" class="post-date">14 Apr 2020</time>
+  <p>I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase such that if I typed “sss” it would automatically type “select * from  limit 100”. I couldn’t be happier with the results. This is how I did it:</p>
+
+<p>I used the program AutoHotKey — my company had this in their software library so I installed it via that.</p>
+
+<p>My script looks like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
+#Warn ; Enable warnings to assist with detecting common errors.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+::
+   :*:sss::select * from  limit 100
+Return
+</code></pre></div></div>
+<p>The one gotcha I ran into was having to run, or enable, the script every single time I logged in. Fortunately, I found a solution.</p>
+
+<p>Original answer here: <a href="https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304">https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304</a></p>
+
+<p>Edit the startup registry directly:</p>
+
+<ol>
+  <li>Run regedit</li>
+  <li>Browse to
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</li>
+  <li>Add new String Value</li>
+  <li>For Value Data, input path to your .ahk file</li>
+</ol>
+
+</article>
+
+
+<aside class="related">
+  <h3>Other posts</h3>
+  <ul class="related-posts">
+    
+      <li>
+        <a href="/2020/04/04/robinhood/">
+          Importing Robinhood Portfolio Data into Python Pandas
+          <small><time datetime="2020-04-04T00:00:00-07:00">04 Apr 2020</time></small>
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+
+
+      </main>
+
+      <footer class="footer">
+        <small>
+          &copy; <time datetime="2020-04-14T19:44:30-07:00">2020</time>. All rights reserved.
+        </small>
+      </footer>
+    </div>
+
+    
+  </body>
+</html>

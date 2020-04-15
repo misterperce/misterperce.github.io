@@ -1,0 +1,27 @@
+I"<p>I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase and couldn’t be happier. This is how I did it.</p>
+
+<p>I used the program AutoHotKey — my company had this in their software library so I installed it via that.</p>
+
+<p>My script looks like this:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
+#Warn ; Enable warnings to assist with detecting common errors.
+SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
+SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
+::
+   :*:sss::select * from  limit 100
+Return
+</code></pre></div></div>
+<p>The one gotcha I ran into was having to run, or enable, the script every single time I logged in. Fortunately, I found a solution.</p>
+
+<p>Original answer here: <a href="https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304">https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304</a></p>
+
+<p>Edit the startup registry directly:</p>
+
+<ol>
+  <li>Run regedit</li>
+  <li>Browse to
+Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run</li>
+  <li>Add new String Value</li>
+  <li>For Value Data, input path to your .ahk file</li>
+</ol>
+:ET
