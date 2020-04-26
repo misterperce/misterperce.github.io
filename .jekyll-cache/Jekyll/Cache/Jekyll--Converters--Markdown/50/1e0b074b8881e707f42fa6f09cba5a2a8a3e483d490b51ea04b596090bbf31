@@ -1,0 +1,220 @@
+I"
+g<ul>
+  <li><a href="#input--output">Input, Output</a>
+    <ul>
+      <li><a href="#read-excel---csv">Read Excel / CSV</a></li>
+      <li><a href="#export-as-csv-with-date-in-filename">Export as CSV with date in filename</a></li>
+    </ul>
+  </li>
+  <li><a href="#database-functions">Database Functions</a>
+    <ul>
+      <li><a href="#merge-dataframes">Merge DataFrames</a></li>
+      <li><a href="#create-column-with-values-based-on-conditional">Create column with values based on conditional</a></li>
+      <li><a href="#time-delta">Time Delta</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-cleanup">Data Cleanup</a>
+    <ul>
+      <li><a href="#conditional-drop-rows">Conditional drop rows</a></li>
+      <li><a href="#drop-duplicates">Drop duplicates</a></li>
+      <li><a href="#replace-value">Replace value</a></li>
+      <li><a href="#replace-string-part-in-column">Replace string part in column</a></li>
+      <li><a href="#fill-na">Fill NA</a></li>
+    </ul>
+  </li>
+  <li><a href="#data-formatting">Data Formatting</a>
+    <ul>
+      <li><a href="#rename-columns">Rename columns</a></li>
+      <li><a href="#coerce-datetime-format">Coerce datetime format</a></li>
+      <li><a href="#datetime-to-string-with-custom-formatting">Datetime to string with custom formatting</a></li>
+      <li><a href="#sort-rows-by-column-values">Sort rows by column values</a></li>
+      <li><a href="#round-data">Round data</a></li>
+      <li><a href="#column-arrangement">Column arrangement</a></li>
+      <li><a href="#convert-string-to-uppercase">Convert string to uppercase</a></li>
+    </ul>
+  </li>
+  <li><a href="#code-snippets">Code Snippets</a>
+    <ul>
+      <li><a href="#pick-list-generator">Pick List Generator</a></li>
+      <li><a href="#map-dictionary">Map Dictionary</a></li>
+    </ul>
+  </li>
+</ul>
+
+<p><small><i><a href="http://ecotrust-canada.github.io/markdown-toc/">Table of contents generated with markdown-toc</a></i></small></p>
+
+<p>(TOC generator credit: <a href="https://ecotrust-canada.github.io/markdown-toc/">https://ecotrust-canada.github.io/markdown-toc/</a>)</p>
+
+<h2 id="input-output">Input, Output</h2>
+
+<h3 id="read-excel--csv">Read Excel / CSV</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'file.xlsx'</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">'file.csv'</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">','</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="export-as-csv-with-date-in-filename">Export as CSV with date in filename</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="n">dt</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="n">datestr</span> <span class="o">=</span> <span class="n">today</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'</span><span class="si">%</span><span class="s">m-</span><span class="si">%</span><span class="s">d-</span><span class="si">%</span><span class="s">Y'</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'pick_list_output_'</span><span class="o">+</span><span class="n">datestr</span><span class="o">+</span><span class="s">'.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="database-functions">Database Functions</h2>
+
+<h3 id="merge-dataframes">Merge DataFrames</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">output_df</span><span class="p">,</span> <span class="n">asin_attr</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'asin'</span><span class="p">])</span>
+</code></pre></div></div>
+
+<h3 id="create-column-with-values-based-on-conditional">Create column with values based on conditional</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map</span><span class="p">[</span><span class="s">'vendor_type'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">pog_map</span><span class="p">[</span><span class="s">'pog_name'</span><span class="p">]</span><span class="o">==</span><span class="s">'GSF Transfer'</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">pog_map</span><span class="p">[</span><span class="s">'pog_name'</span><span class="p">]</span><span class="o">==</span><span class="s">'NACF'</span><span class="p">),</span> <span class="s">'TRANSSHIP'</span><span class="p">,</span> <span class="s">'SUBMIT_PO'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="time-delta">Time Delta</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># https://pymotw.com/2/datetime/
+</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<span class="k">print</span> <span class="s">'Today    :'</span><span class="p">,</span> <span class="n">today</span>
+
+<span class="n">one_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">'One day  :'</span><span class="p">,</span> <span class="n">one_day</span>
+
+<span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">one_day</span>
+<span class="k">print</span> <span class="s">'Yesterday:'</span><span class="p">,</span> <span class="n">yesterday</span>
+
+<span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">one_day</span>
+<span class="k">print</span> <span class="s">'Tomorrow :'</span><span class="p">,</span> <span class="n">tomorrow</span>
+
+<span class="k">print</span> <span class="s">'tomorrow - yesterday:'</span><span class="p">,</span> <span class="n">tomorrow</span> <span class="o">-</span> <span class="n">yesterday</span>
+<span class="k">print</span> <span class="s">'yesterday - tomorrow:'</span><span class="p">,</span> <span class="n">yesterday</span> <span class="o">-</span> <span class="n">tomorrow</span>
+
+<span class="o">----</span>
+<span class="n">Output</span><span class="p">:</span>
+<span class="n">Today</span>    <span class="p">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">21</span>
+<span class="n">One</span> <span class="n">day</span>  <span class="p">:</span> <span class="mi">1</span> <span class="n">day</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="n">Yesterday</span><span class="p">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">20</span>
+<span class="n">Tomorrow</span> <span class="p">:</span> <span class="mi">2013</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">22</span>
+<span class="n">tomorrow</span> <span class="o">-</span> <span class="n">yesterday</span><span class="p">:</span> <span class="mi">2</span> <span class="n">days</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+<span class="n">yesterday</span> <span class="o">-</span> <span class="n">tomorrow</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="n">days</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
+</code></pre></div></div>
+
+<h2 id="data-cleanup">Data Cleanup</h2>
+
+<h3 id="conditional-drop-rows">Conditional drop rows</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">remove</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">remove</span><span class="p">[</span><span class="n">remove</span><span class="o">.</span><span class="n">qty</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="drop-duplicates">Drop duplicates</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">asin_attr</span> <span class="o">=</span> <span class="n">asin_attr</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span> <span class="o">=</span><span class="s">'asin'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="replace-value">Replace value</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># this converts all case_pack qtys of 0 to 1, as leaving it as 0 will break Reducio
+</span></code></pre></div></div>
+
+<h3 id="replace-string-part-in-column">Replace string part in column</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">output_df</span><span class="p">[</span><span class="s">'past_donated'</span><span class="p">]</span> <span class="o">=</span> <span class="n">output_df</span><span class="p">[</span><span class="s">'past_donated'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">'N'</span><span class="p">,</span><span class="s">''</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="fill-na">Fill NA</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">pog_map</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="s">'AMBIENT'</span><span class="p">)</span>
+<span class="n">pog_map</span><span class="o">.</span><span class="n">case_pack</span> <span class="o">=</span> <span class="n">pog_map</span><span class="o">.</span><span class="n">case_pack</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="data-formatting">Data Formatting</h2>
+
+<h3 id="rename-columns">Rename columns</h3>
+
+<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">df</span><span class="p">.</span><span class="nx">rename</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">axis</span><span class="o">=</span><span class="dl">'</span><span class="s1">index</span><span class="dl">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="coerce-datetime-format">Coerce datetime format</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_exp</span><span class="p">[</span><span class="s">'expiration_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_exp</span><span class="p">[</span><span class="s">'expiration_date'</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s">'coerce'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="datetime-to-string-with-custom-formatting">Datetime to string with custom formatting</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">inv</span><span class="p">[</span><span class="s">'snapshot_date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sdate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">'</span><span class="se">\'</span><span class="si">%</span><span class="s">Y/</span><span class="si">%</span><span class="s">m/</span><span class="si">%</span><span class="s">d</span><span class="se">\'</span><span class="s">'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="sort-rows-by-column-values">Sort rows by column values</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df_exp1</span> <span class="o">=</span> <span class="n">df_exp</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s">'expiration_date'</span><span class="p">,</span><span class="s">'qty'</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="p">(</span><span class="bp">True</span><span class="p">,</span> <span class="bp">False</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="round-data">Round data</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">remove</span><span class="o">.</span><span class="n">qty</span> <span class="o">=</span> <span class="n">remove</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="nb">round</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h3 id="column-arrangement">Column arrangement</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">cols</span> <span class="o">=</span> <span class="n">fcst_df_output</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fcst_df_output</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">cols</span> <span class="o">=</span> <span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">cols</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">cols</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">cols</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">33</span><span class="p">]</span>
+<span class="n">fcst_df_output</span> <span class="o">=</span> <span class="n">fcst_df_output</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+</code></pre></div></div>
+
+<h3 id="convert-string-to-uppercase">Convert string to uppercase</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">pog_map</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+</code></pre></div></div>
+
+<h2 id="code-snippets">Code Snippets</h2>
+
+<h3 id="pick-list-generator">Pick List Generator</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">remove</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
+    <span class="c1"># print(row['ASIN'])
+</span>    <span class="n">temp_mini_asin_loc</span> <span class="o">=</span> <span class="n">df_exp1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_exp1</span><span class="p">[</span><span class="n">df_exp1</span><span class="o">.</span><span class="n">asin</span> <span class="o">!=</span> <span class="n">row</span><span class="p">[</span><span class="s">'ASIN'</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c1"># print(temp_mini_asin_loc)
+</span>    <span class="n">row_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">qty_to_remove_counter</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'qty'</span><span class="p">]</span>
+    <span class="c1"># print(row['qty'])
+</span>    <span class="k">while</span> <span class="n">qty_to_remove_counter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">row_counter</span> <span class="o">&lt;</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">if</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">qty_to_remove_counter</span><span class="p">:</span>
+            <span class="n">to_remove_from_bin</span> <span class="o">=</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">to_remove_from_bin</span> <span class="o">=</span> <span class="n">qty_to_remove_counter</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">],</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">location_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">],</span> <span class="n">to_remove_from_bin</span><span class="p">,</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">expiration_date</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]])</span>
+        <span class="c1"># print(temp_mini_asin_loc.asin.iloc[row_counter], temp_mini_asin_loc.location_id.iloc[row_counter], temp_mini_asin_loc.qty.iloc[row_counter],to_remove_from_bin)
+</span>        <span class="n">qty_to_remove_counter</span> <span class="o">=</span> <span class="n">qty_to_remove_counter</span> <span class="o">-</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span>
+        <span class="n">row_counter</span> <span class="o">=</span> <span class="n">row_counter</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<h3 id="map-dictionary">Map Dictionary</h3>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">mydict</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Bin:A.'</span> <span class="p">:</span> <span class="s">'AMBIENT'</span><span class="p">,</span>
+          <span class="s">'Bin:DC.'</span> <span class="p">:</span> <span class="s">'AMBIENT'</span><span class="p">,</span>
+          <span class="s">'Bin:S.'</span> <span class="p">:</span> <span class="s">'AMBIENT'</span><span class="p">,</span>
+          <span class="s">'Bin:G.'</span> <span class="p">:</span> <span class="s">'AMBIENT'</span><span class="p">,</span>
+          <span class="s">'Bin:M.'</span> <span class="p">:</span> <span class="s">'CHILLED'</span><span class="p">,</span>
+          <span class="s">'Bin:RT.'</span> <span class="p">:</span> <span class="s">'CHILLED'</span><span class="p">,</span>
+          <span class="s">'Bin:P.'</span> <span class="p">:</span> <span class="s">'CHILLED'</span><span class="p">,</span>
+          <span class="s">'Bin:F.'</span> <span class="p">:</span> <span class="s">'FROZEN'</span><span class="p">,</span>
+          <span class="s">'Bin:D'</span> <span class="p">:</span> <span class="s">'CHILLED'</span><span class="p">}</span>
+
+<span class="n">pat</span> <span class="o">=</span> <span class="s">'|'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">r"\b{}\b"</span><span class="o">.</span><span class="nb">format</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">mydict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="n">bins1</span><span class="p">[</span><span class="s">'temp_zone'</span><span class="p">]</span> <span class="o">=</span> <span class="n">bins1</span><span class="p">[</span><span class="s">'location_id'</span><span class="p">]</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s">'('</span><span class="o">+</span> <span class="n">pat</span> <span class="o">+</span> <span class="s">')'</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="nb">map</span><span class="p">(</span><span class="n">mydict</span><span class="p">)</span>
+<span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">output_df</span><span class="p">,</span> <span class="n">bins1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'location_id'</span><span class="p">])</span>
+<span class="n">output_df</span> <span class="o">=</span> <span class="n">output_df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s">'capacity_subgroup'</span><span class="p">])</span>
+</code></pre></div></div>
+:ET
