@@ -1,5 +1,4 @@
-I"
-g<ul>
+I"Âd<ul>
   <li><a href="#input--output">Input, Output</a>
     <ul>
       <li><a href="#read-excel---csv">Read Excel / CSV</a></li>
@@ -41,9 +40,9 @@ g<ul>
   </li>
 </ul>
 
-<p><small><i><a href="http://ecotrust-canada.github.io/markdown-toc/">Table of contents generated with markdown-toc</a></i></small></p>
-
 <p>(TOC generator credit: <a href="https://ecotrust-canada.github.io/markdown-toc/">https://ecotrust-canada.github.io/markdown-toc/</a>)</p>
+
+<hr />
 
 <h2 id="input-output">Input, Output</h2>
 
@@ -122,8 +121,8 @@ g<ul>
 
 <h3 id="replace-value">Replace value</h3>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># this converts all case_pack qtys of 0 to 1, as leaving it as 0 will break Reducio
-</span></code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pog_map2</span><span class="p">[</span><span class="s">'case_pack'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div></div>
 
 <h3 id="replace-string-part-in-column">Replace string part in column</h3>
 
@@ -183,20 +182,16 @@ g<ul>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">remove</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-    <span class="c1"># print(row['ASIN'])
-</span>    <span class="n">temp_mini_asin_loc</span> <span class="o">=</span> <span class="n">df_exp1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_exp1</span><span class="p">[</span><span class="n">df_exp1</span><span class="o">.</span><span class="n">asin</span> <span class="o">!=</span> <span class="n">row</span><span class="p">[</span><span class="s">'ASIN'</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-    <span class="c1"># print(temp_mini_asin_loc)
-</span>    <span class="n">row_counter</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">temp_mini_asin_loc</span> <span class="o">=</span> <span class="n">df_exp1</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df_exp1</span><span class="p">[</span><span class="n">df_exp1</span><span class="o">.</span><span class="n">asin</span> <span class="o">!=</span> <span class="n">row</span><span class="p">[</span><span class="s">'ASIN'</span><span class="p">]]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">row_counter</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">qty_to_remove_counter</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s">'qty'</span><span class="p">]</span>
-    <span class="c1"># print(row['qty'])
-</span>    <span class="k">while</span> <span class="n">qty_to_remove_counter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">row_counter</span> <span class="o">&lt;</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+    <span class="k">while</span> <span class="n">qty_to_remove_counter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">row_counter</span> <span class="o">&lt;</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">qty_to_remove_counter</span><span class="p">:</span>
             <span class="n">to_remove_from_bin</span> <span class="o">=</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">to_remove_from_bin</span> <span class="o">=</span> <span class="n">qty_to_remove_counter</span>
         <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">asin</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">],</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">location_id</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">],</span> <span class="n">to_remove_from_bin</span><span class="p">,</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">expiration_date</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]])</span>
-        <span class="c1"># print(temp_mini_asin_loc.asin.iloc[row_counter], temp_mini_asin_loc.location_id.iloc[row_counter], temp_mini_asin_loc.qty.iloc[row_counter],to_remove_from_bin)
-</span>        <span class="n">qty_to_remove_counter</span> <span class="o">=</span> <span class="n">qty_to_remove_counter</span> <span class="o">-</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span>
+        <span class="n">qty_to_remove_counter</span> <span class="o">=</span> <span class="n">qty_to_remove_counter</span> <span class="o">-</span> <span class="n">temp_mini_asin_loc</span><span class="o">.</span><span class="n">qty</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">row_counter</span><span class="p">]</span>
         <span class="n">row_counter</span> <span class="o">=</span> <span class="n">row_counter</span> <span class="o">+</span> <span class="mi">1</span>
 </code></pre></div></div>
 

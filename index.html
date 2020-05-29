@@ -21,6 +21,15 @@ title: "Home"
 </div>
 
 <div class="page">
+<h4> Wikis (living pages)</h4>
+{% for page in site.pages %}
+  <a href="{{ page.url }}">
+    {{ page.title }}</a>
+  <br/>
+{% endfor %}
+</div>
+
+<div class="page">
 <h4> Elsewhere </h4>
   <a href="https://www.linkedin.com/in/nancycxia/" target="_blank">LinkedIn</a><br/>
   <!-- <a href="https://www.percepaints.com/" target="_blank">Perce Paints</a><small> · My art website</small> -->

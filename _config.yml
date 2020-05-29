@@ -6,6 +6,12 @@ paginate: 5
 baseurl: ""
 permalink: pretty
 
+# include: ['_pages']
+collections:
+  pages:
+    output: true
+    permalink: /:path
+
 # Gems
 plugins:
   - jekyll-gist

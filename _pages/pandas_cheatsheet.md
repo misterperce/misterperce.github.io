@@ -1,7 +1,8 @@
 ---
-layout: post
-title: Pandas Cheatsheet [Living Doc]
+title: Pandas Cheatsheet
+layout: page
 ---
+
 - [Input, Output](#input--output)
   * [Read Excel / CSV](#read-excel---csv)
   * [Export as CSV with date in filename](#export-as-csv-with-date-in-filename)
@@ -116,7 +117,7 @@ asin_attr = asin_attr.drop_duplicates(subset ='asin')
 ### Replace value
 
 ```python
-pog_map2['case_pack'] = pog_map2['case_pack'].replace(0,1) # this converts all case_pack qtys of 0 to 1, as leaving it as 0 will break Reducio
+pog_map2['case_pack'] = pog_map2['case_pack'].replace(0,1)
 ```
 
 ### Replace string part in column
@@ -187,19 +188,15 @@ pog_map.category = pog_map.category.str.upper()
 output = []
 
 for i, row in remove.iterrows():
-    # print(row['ASIN'])
     temp_mini_asin_loc = df_exp1.drop(df_exp1[df_exp1.asin != row['ASIN']].index).reset_index(drop=True)
-    # print(temp_mini_asin_loc)
     row_counter = 0
     qty_to_remove_counter = row['qty']
-    # print(row['qty'])
     while qty_to_remove_counter > 0 and row_counter < temp_mini_asin_loc.shape[0]:
         if temp_mini_asin_loc.qty.iloc[row_counter] <= qty_to_remove_counter:
             to_remove_from_bin = temp_mini_asin_loc.qty.iloc[row_counter]
         else:
             to_remove_from_bin = qty_to_remove_counter
         output.append([temp_mini_asin_loc.asin.iloc[row_counter], temp_mini_asin_loc.location_id.iloc[row_counter], to_remove_from_bin, temp_mini_asin_loc.expiration_date.iloc[row_counter]])
-        # print(temp_mini_asin_loc.asin.iloc[row_counter], temp_mini_asin_loc.location_id.iloc[row_counter], temp_mini_asin_loc.qty.iloc[row_counter],to_remove_from_bin)
         qty_to_remove_counter = qty_to_remove_counter - temp_mini_asin_loc.qty.iloc[row_counter]
         row_counter = row_counter + 1
 ```
