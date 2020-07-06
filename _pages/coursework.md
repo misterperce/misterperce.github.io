@@ -31,12 +31,12 @@ It excites me to display my collection!
 
 | Humanaties                                       |      |
 |--------------------------------------------------|------|
-| Directed Studies: Literature                     | Yale |
-| Directed Studies: Philosophy                     | Yale |
-| Directed Studies: Historical & Political Thought | Yale |
-| Directed Studies: Literature                     | Yale |
-| Directed Studies: Philosophy                     | Yale |
-| Directed Studies: Historical & Political Thought | Yale |
+| Directed Studies: Literature (Fall)              | Yale |
+| Directed Studies: Philosophy (Fall)              | Yale |
+| Directed Studies: Historical & Political Thought (Fall) | Yale |
+| Directed Studies: Literature (Spring)            | Yale |
+| Directed Studies: Philosophy (Spring)            | Yale |
+| Directed Studies: Historical & Political Thought (Spring) | Yale |
 | Belle Epoque France                              | Yale |
 | Japanese Popular Culture                         | Yale |
 | 19th Century French Art                          | Yale |
@@ -57,10 +57,10 @@ It excites me to display my collection!
 
 | Other                                           |      |
 |-------------------------------------------------|------|
-| Intro to Biological Antrhopology                | Yale |
-| Intermediate Modern Chinese - Advanced Learners | Yale |
+| Intro to Biological Anthropology                | Yale |
+| Intermediate Modern Chinese - Advanced Learners  (Fall) | Yale |
 | Intro to Psychology                             | Yale |
-| Intermediate Modern Chinese - Advanced Learners | Yale |
+| Intermediate Modern Chinese - Advanced Learners (Spring) | Yale |
 | Introduction to the Human Brain                 | Yale |
 | Introduction to Buddhist Thought & Practice     | Yale |
 | Issues in Bioethics                             | Yale |
