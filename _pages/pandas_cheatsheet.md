@@ -4,12 +4,14 @@ layout: page
 ---
 
 - [Input, Output](#input--output)
+  * [Current Directory](#current-directory)
   * [Read Excel / CSV](#read-excel---csv)
   * [Export as CSV with date in filename](#export-as-csv-with-date-in-filename)
-- [Database Functions](#database-functions)
+- [DataFrame Functions](#dataframe-functions)
   * [Merge DataFrames](#merge-dataframes)
   * [Create column with values based on conditional](#create-column-with-values-based-on-conditional)
   * [Time Delta](#time-delta)
+  * [Do diff on two DataFrames](#do-diff-on-two-dataframes)
 - [Data Cleanup](#data-cleanup)
   * [Conditional drop rows](#conditional-drop-rows)
   * [Drop duplicates](#drop-duplicates)
@@ -24,15 +26,22 @@ layout: page
   * [Round data](#round-data)
   * [Column arrangement](#column-arrangement)
   * [Convert string to uppercase](#convert-string-to-uppercase)
+  * [Convert DataFrame column data to list](#convert-dataframe-column-data-to-list)
+- [SQL Alchemy](#sql-alchemy)
+  * [`to_sql` Function](#-to-sql--function)
+  * [SQLite Database viewer](#sqlite-database-viewer)
 - [Code Snippets](#code-snippets)
   * [Pick List Generator](#pick-list-generator)
   * [Map Dictionary](#map-dictionary)
 
-(TOC generator credit: [https://ecotrust-canada.github.io/markdown-toc/](https://ecotrust-canada.github.io/markdown-toc/))
+<small>(TOC generator credit: [https://ecotrust-canada.github.io/markdown-toc/](https://ecotrust-canada.github.io/markdown-toc/))</small>
 
 ---
 
 ## Input, Output
+
+### Current Directory
+[https://stackoverflow.com/questions/3430372/how-do-i-get-the-full-path-of-the-current-files-directory]()
 
 ### Read Excel / CSV
 
@@ -54,7 +63,7 @@ datestr = today.strftime('%m-%d-%Y')
 df.to_csv('pick_list_output_'+datestr+'.csv',index=False)
 ```
 
-## Database Functions
+## DataFrame Functions
 
 ### Merge DataFrames
 
@@ -99,6 +108,9 @@ Tomorrow : 2013-02-22
 tomorrow - yesterday: 2 days, 0:00:00
 yesterday - tomorrow: -2 days, 0:00:00
 ```
+
+### Do diff on two DataFrames
+[https://stackoverflow.com/questions/36891977/pandas-diff-of-two-dataframes]()
 
 ## Data Cleanup
 
@@ -152,6 +164,7 @@ df_exp['expiration_date'] = pd.to_datetime(df_exp['expiration_date'], errors='co
 ```python
 inv['snapshot_date'] = sdate.strftime('\'%Y/%m/%d\'')
 ```
+[https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.strftime.html]()
 
 ### Sort rows by column values
 
@@ -179,6 +192,20 @@ fcst_df_output = fcst_df_output[cols]
 ```python
 pog_map.category = pog_map.category.str.upper()
 ```
+
+### Convert DataFrame column data to list
+```python
+list(data_top.index)
+```
+[https://www.geeksforgeeks.org/how-to-get-rows-index-names-in-pandas-dataframe/]()
+
+## SQL Alchemy
+
+### `to_sql` Function
+[https://www.w3resource.com/pandas/dataframe/dataframe-to_sql.php]()
+
+### SQLite Database viewer
+[https://inloop.github.io/sqlite-viewer/]()
 
 ## Code Snippets
 

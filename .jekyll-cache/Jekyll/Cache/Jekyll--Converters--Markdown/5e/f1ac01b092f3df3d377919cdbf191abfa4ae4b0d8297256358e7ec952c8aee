@@ -1,4 +1,4 @@
-I"Âd<ul>
+I"øh<ul>
   <li><a href="#input--output">Input, Output</a>
     <ul>
       <li><a href="#read-excel---csv">Read Excel / CSV</a></li>
@@ -46,6 +46,9 @@
 
 <h2 id="input-output">Input, Output</h2>
 
+<h3 id="current-directory">Current Directory</h3>
+<p>https://stackoverflow.com/questions/3430372/how-do-i-get-the-full-path-of-the-current-files-directory</p>
+
 <h3 id="read-excel--csv">Read Excel / CSV</h3>
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s">'file.xlsx'</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -64,7 +67,7 @@
 <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'pick_list_output_'</span><span class="o">+</span><span class="n">datestr</span><span class="o">+</span><span class="s">'.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
 </code></pre></div></div>
 
-<h2 id="database-functions">Database Functions</h2>
+<h2 id="dataframe-functions">DataFrame Functions</h2>
 
 <h3 id="merge-dataframes">Merge DataFrames</h3>
 
@@ -106,6 +109,9 @@
 <span class="n">tomorrow</span> <span class="o">-</span> <span class="n">yesterday</span><span class="p">:</span> <span class="mi">2</span> <span class="n">days</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
 <span class="n">yesterday</span> <span class="o">-</span> <span class="n">tomorrow</span><span class="p">:</span> <span class="o">-</span><span class="mi">2</span> <span class="n">days</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mi">00</span>
 </code></pre></div></div>
+
+<h3 id="do-diff-on-two-dataframes">Do diff on two DataFrames</h3>
+<p>https://stackoverflow.com/questions/36891977/pandas-diff-of-two-dataframes</p>
 
 <h2 id="data-cleanup">Data Cleanup</h2>
 
@@ -174,6 +180,19 @@
 
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">pog_map</span><span class="o">.</span><span class="n">category</span> <span class="o">=</span> <span class="n">pog_map</span><span class="o">.</span><span class="n">category</span><span class="o">.</span><span class="nb">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </code></pre></div></div>
+
+<h3 id="convert-dataframe-column-data-to-list">Convert DataFrame column data to list</h3>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">list</span><span class="p">(</span><span class="n">data_top</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</code></pre></div></div>
+<p>https://www.geeksforgeeks.org/how-to-get-rows-index-names-in-pandas-dataframe/</p>
+
+<h2 id="sql-alchemy">SQL Alchemy</h2>
+
+<h3 id="to_sql-function"><code class="highlighter-rouge">to_sql</code> Function</h3>
+<p>https://www.w3resource.com/pandas/dataframe/dataframe-to_sql.php</p>
+
+<h3 id="sqlite-database-viewer">SQLite Database viewer</h3>
+<p>https://inloop.github.io/sqlite-viewer/</p>
 
 <h2 id="code-snippets">Code Snippets</h2>
 
