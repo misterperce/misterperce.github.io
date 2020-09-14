@@ -14,13 +14,18 @@ table th:nth-of-type(2) {
 
 It excites me to display my collection!
 
+| Data Analysis                                |
+|------------------------------------------|------|
+| Econometrics & Data Analysis I           | Yale |
+| Data, Models, and Decisions              | MIT Sloan |
+
+
 | Economics                                |
 |------------------------------------------|------|
 | Introductory Microeconomics              | Yale |
 | Introductory Macroeconomics              | Yale |
 | Economics of Corruption                  | Yale |
 | Calculus of Functions of One Variable II | Yale |
-| Econometrics & Data Analysis I           | Yale |
 | Intermediate Microeconomics              | Yale |
 | International Economics                  | Yale |
 | Intermediate Macroeconomics              | Yale |
@@ -28,8 +33,15 @@ It excites me to display my collection!
 | Genetics and Economics                   | Yale |
 | Cooperative Game Theory                  | Yale |
 | Debating Globalization                   | Yale |
+| Economic Analysis for Business Decisions | MIT Sloan |
 
-| Humanaties                                       |      |
+| Business                                 |
+|------------------------------------------|------|
+| Communication for Leaders              | MIT Sloan |
+| Organizational Processes               | MIT Sloan |
+| Financial Accounting                   | MIT Sloan |
+
+| Humanities                                       |      |
 |--------------------------------------------------|------|
 | Directed Studies: Literature (Fall)              | Yale |
 | Directed Studies: Philosophy (Fall)              | Yale |
@@ -37,10 +49,10 @@ It excites me to display my collection!
 | Directed Studies: Literature (Spring)            | Yale |
 | Directed Studies: Philosophy (Spring)            | Yale |
 | Directed Studies: Historical & Political Thought (Spring) | Yale |
-| Belle Epoque France                              | Yale |
+| Belle Époque France                              | Yale |
 | Japanese Popular Culture                         | Yale |
-| 19th Century French Art                          | Yale |
-| American Photojournalism                         | Yale |
+| 19th Century French Art History                  | Yale |
+| American Photojournalism (Art History)           | Yale |
 | Women in Modern America                          | Yale |
 | Hip Hop Music and Culture                        | Yale |
 | Science Fiction                                  | Yale |

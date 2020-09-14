@@ -1,4 +1,4 @@
-I"	<ul>
+I"	<ul>
   <li><a href="#input--output">Input, Output</a>
     <ul>
       <li><a href="#current-directory">Current Directory</a></li>
@@ -37,7 +37,7 @@
   </li>
   <li><a href="#sql-alchemy">SQL Alchemy</a>
     <ul>
-      <li><a href="#-to-sql--function"><code class="highlighter-rouge">to_sql</code> Function</a></li>
+      <li><a href="#-to-sql--function"><code class="language-plaintext highlighter-rouge">to_sql</code> Function</a></li>
       <li><a href="#sqlite-database-viewer">SQLite Database viewer</a></li>
     </ul>
   </li>

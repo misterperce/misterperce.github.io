@@ -1,4 +1,4 @@
-I"�<style>
+I"�<style>
 table th:first-of-type {
     width: 70%;
 }
@@ -8,6 +8,21 @@ table th:nth-of-type(2) {
 </style>
 
 <p>It excites me to display my collection!</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Data Analysis</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Data, Models, and Decisions</td>
+      <td>MIT Sloan</td>
+    </tr>
+  </tbody>
+</table>
 
 <table>
   <thead>
@@ -65,13 +80,40 @@ table th:nth-of-type(2) {
       <td>Debating Globalization</td>
       <td>Yale</td>
     </tr>
+    <tr>
+      <td>Economic Analysis for Business Decisions</td>
+      <td>MIT Sloan</td>
+    </tr>
   </tbody>
 </table>
 
 <table>
   <thead>
     <tr>
-      <th>Humanaties</th>
+      <th>Business</th>
+      <th> </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Communication for Leaders</td>
+      <td>MIT Sloan</td>
+    </tr>
+    <tr>
+      <td>Organizational Processes</td>
+      <td>MIT Sloan</td>
+    </tr>
+    <tr>
+      <td>Financial Accounting</td>
+      <td>MIT Sloan</td>
+    </tr>
+  </tbody>
+</table>
+
+<table>
+  <thead>
+    <tr>
+      <th>Humanities</th>
       <th> </th>
     </tr>
   </thead>
@@ -101,7 +143,7 @@ table th:nth-of-type(2) {
       <td>Yale</td>
     </tr>
     <tr>
-      <td>Belle Epoque France</td>
+      <td>Belle Époque France</td>
       <td>Yale</td>
     </tr>
     <tr>

@@ -117,7 +117,7 @@ yesterday - tomorrow: -2 days, 0:00:00
 ### Conditional drop rows
 
 ```python
-remove.drop(remove[remove.qty == 0].index, inplace=True)
+df = df.drop(df[df.col != 'condition for keeping'].index)
 ```
 
 ### Drop duplicates
