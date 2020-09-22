@@ -1,0 +1,27 @@
+I"<h3 id="call-column-in-dataframe">Call column in dataframe</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataframe$column
+</code></pre></div></div>
+
+<h3 id="transpose-shape-of-dataframe">Transpose shape of dataframe</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df2 &lt;- spread(returns, stock, return)
+</code></pre></div></div>
+
+<h3 id="find-correlation-of-columns-in-dataframe">Find correlation of columns in dataframe</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cor(df2, y=NULL, use="everything")
+</code></pre></div></div>
+<h3 id="find-percentile-given-quantity-mean-and-sd">Find percentile given quantity, mean, and sd</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pnorm(1,3.23,8.47)
+</code></pre></div></div>
+
+<h3 id="create-new-dataframe-with-just-col_a-and-col_b">Create new dataframe with just col_a and col_b</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select(df, col_a, col_b)
+</code></pre></div></div>
+<h3 id="probability-of-succeeding-8-or-more-times-out-of-12-trials-with-success-rate--0587">Probability of succeeding 8 or more times out of 12 trials with success rate = 0.587</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 - pbinom(7,12,0.587)
+</code></pre></div></div>
+
+<h3 id="pivot-table">Pivot table</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>returns_sum &lt;- summarize(group_by(returns,stock), avg = mean(return), stddev = sd(return))
+</code></pre></div></div>
+:ET
