@@ -1,0 +1,5 @@
+I"&<h3 id="call-column-in-dataframe">Call column in dataframe</h3>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">dataframe</span><span class="o">$</span><span class="n">column</span><span class="w">
+</span></code></pre></div></div>
+:ET

@@ -11,19 +11,19 @@ title: "Home"
 </div>
 
 <div class="page">
-<h4> Blog posts </h4>
-{% for post in site.posts %}
-  <a href="{{ post.url }}">
-    {{ post.title }}</a><small> · {{ post.date | date_to_string }}</small>
+<h4> Living pages </h4>
+{% for page in site.pages %}
+  <a href="{{ page.url }}">
+    {{ page.title }}</a>
   <br/>
 {% endfor %}
 </div>
 
 <div class="page">
-<h4> Living pages </h4>
-{% for page in site.pages %}
-  <a href="{{ page.url }}">
-    {{ page.title }}</a>
+<h4> Blog posts </h4>
+{% for post in site.posts %}
+  <a href="{{ post.url }}">
+    {{ post.title }}</a><small> · {{ post.date | date_to_string }}</small>
   <br/>
 {% endfor %}
 </div>
