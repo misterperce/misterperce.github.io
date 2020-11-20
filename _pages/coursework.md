@@ -17,15 +17,18 @@ It excites me to display my collection!
 | Data Analysis                                |
 |------------------------------------------|------|
 | Econometrics & Data Analysis I           | Yale |
-| Data, Models, and Decisions              | MIT Sloan |
+| Data, Models, and Decisions              | MIT  |
 
+| Math                                |
+|------------------------------------------|------|
+| Calculus of Functions of One Variable II | Yale |
+| Multivariable Calculus | Khan Academy |
 
 | Economics                                |
 |------------------------------------------|------|
 | Introductory Microeconomics              | Yale |
 | Introductory Macroeconomics              | Yale |
 | Economics of Corruption                  | Yale |
-| Calculus of Functions of One Variable II | Yale |
 | Intermediate Microeconomics              | Yale |
 | International Economics                  | Yale |
 | Intermediate Macroeconomics              | Yale |
@@ -33,13 +36,13 @@ It excites me to display my collection!
 | Genetics and Economics                   | Yale |
 | Cooperative Game Theory                  | Yale |
 | Debating Globalization                   | Yale |
-| Economic Analysis for Business Decisions | MIT Sloan |
+| Economic Analysis for Business Decisions | MIT  |
 
 | Business                                 |
 |------------------------------------------|------|
-| Communication for Leaders              | MIT Sloan |
-| Organizational Processes               | MIT Sloan |
-| Financial Accounting                   | MIT Sloan |
+| Communication for Leaders              | MIT  |
+| Organizational Processes               | MIT  |
+| Financial Accounting                   | MIT  |
 
 | Humanities                                       |      |
 |--------------------------------------------------|------|
@@ -71,8 +74,8 @@ It excites me to display my collection!
 |-------------------------------------------------|------|
 | Intro to Biological Anthropology                | Yale |
 | Intermediate Modern Chinese - Advanced Learners  (Fall) | Yale |
-| Intro to Psychology                             | Yale |
 | Intermediate Modern Chinese - Advanced Learners (Spring) | Yale |
+| Intro to Psychology                             | Yale |
 | Introduction to the Human Brain                 | Yale |
 | Introduction to Buddhist Thought & Practice     | Yale |
 | Issues in Bioethics                             | Yale |
