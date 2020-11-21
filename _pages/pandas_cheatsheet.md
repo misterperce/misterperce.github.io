@@ -3,55 +3,25 @@ title: Pandas Cheatsheet
 layout: page
 ---
 
-- [Input, Output](#input--output)
-  * [Current Directory](#current-directory)
-  * [Read Excel / CSV](#read-excel---csv)
-  * [Export as CSV with date in filename](#export-as-csv-with-date-in-filename)
-- [DataFrame Functions](#dataframe-functions)
-  * [Merge DataFrames](#merge-dataframes)
-  * [Create column with values based on conditional](#create-column-with-values-based-on-conditional)
-  * [Time Delta](#time-delta)
-  * [Do diff on two DataFrames](#do-diff-on-two-dataframes)
-- [Data Cleanup](#data-cleanup)
-  * [Conditional drop rows](#conditional-drop-rows)
-  * [Drop duplicates](#drop-duplicates)
-  * [Replace value](#replace-value)
-  * [Replace string part in column](#replace-string-part-in-column)
-  * [Fill NA](#fill-na)
-- [Data Formatting](#data-formatting)
-  * [Rename columns](#rename-columns)
-  * [Coerce datetime format](#coerce-datetime-format)
-  * [Datetime to string with custom formatting](#datetime-to-string-with-custom-formatting)
-  * [Sort rows by column values](#sort-rows-by-column-values)
-  * [Round data](#round-data)
-  * [Column arrangement](#column-arrangement)
-  * [Convert string to uppercase](#convert-string-to-uppercase)
-  * [Convert DataFrame column data to list](#convert-dataframe-column-data-to-list)
-- [SQL Alchemy](#sql-alchemy)
-  * [`to_sql` Function](#-to-sql--function)
-  * [SQLite Database viewer](#sqlite-database-viewer)
-- [Code Snippets](#code-snippets)
-  * [Pick List Generator](#pick-list-generator)
-  * [Map Dictionary](#map-dictionary)
-
-<small>(TOC generator credit: [https://ecotrust-canada.github.io/markdown-toc/](https://ecotrust-canada.github.io/markdown-toc/))</small>
-
----
+* TOC
+{:toc}
 
 ## Input, Output
 
-### Current Directory
+#### Current Directory
 [https://stackoverflow.com/questions/3430372/how-do-i-get-the-full-path-of-the-current-files-directory]()
 
-### Read Excel / CSV
+#### Read Excel / CSV
 
-```python
+
+```
 df = pd.read_excel('file.xlsx', sheet_name=0, header=0)
 
 df = pd.read_csv('file.csv', sep=',')
 ```
 
-### Export as CSV with date in filename
+
+#### Export as CSV with date in filename
 
 ```python
 import datetime as dt
@@ -65,19 +35,19 @@ df.to_csv('pick_list_output_'+datestr+'.csv',index=False)
 
 ## DataFrame Functions
 
-### Merge DataFrames
+#### Merge DataFrames
 
 ```python
 output_df = pd.merge(output_df, asin_attr, how='left', on=['asin'])
 ```
 
-### Create column with values based on conditional
+#### Create column with values based on conditional
 
 ```python
 pog_map['vendor_type'] = np.where((pog_map['pog_name']=='GSF Transfer') | (pog_map['pog_name']=='NACF'), 'TRANSSHIP', 'SUBMIT_PO')
 ```
 
-### Time Delta
+#### Time Delta
 
 ```python
 # https://pymotw.com/2/datetime/
@@ -109,36 +79,36 @@ tomorrow - yesterday: 2 days, 0:00:00
 yesterday - tomorrow: -2 days, 0:00:00
 ```
 
-### Do diff on two DataFrames
+#### Do diff on two DataFrames
 [https://stackoverflow.com/questions/36891977/pandas-diff-of-two-dataframes]()
 
 ## Data Cleanup
 
-### Conditional drop rows
+#### Conditional drop rows
 
 ```python
 df = df.drop(df[df.col != 'condition for keeping'].index)
 ```
 
-### Drop duplicates
+#### Drop duplicates
 
 ```python
 asin_attr = asin_attr.drop_duplicates(subset ='asin')
 ```
 
-### Replace value
+#### Replace value
 
 ```python
 pog_map2['case_pack'] = pog_map2['case_pack'].replace(0,1)
 ```
 
-### Replace string part in column
+#### Replace string part in column
 
 ```python
 output_df['past_donated'] = output_df['past_donated'].replace('N','')
 ```
 
-### Fill NA
+#### Fill NA
 
 ```python
 pog_map.category = pog_map.category.fillna('AMBIENT')
@@ -147,38 +117,38 @@ pog_map.case_pack = pog_map.case_pack.fillna(0)
 
 ## Data Formatting
 
-### Rename columns
+#### Rename columns
 
 ```jsx
 df.rename({1: 2, 2: 4}, axis='index')
 ```
 
-### Coerce datetime format
+#### Coerce datetime format
 
 ```python
 df_exp['expiration_date'] = pd.to_datetime(df_exp['expiration_date'], errors='coerce')
 ```
 
-### Datetime to string with custom formatting
+#### Datetime to string with custom formatting
 
 ```python
 inv['snapshot_date'] = sdate.strftime('\'%Y/%m/%d\'')
 ```
 [https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Series.dt.strftime.html]()
 
-### Sort rows by column values
+#### Sort rows by column values
 
 ```python
 df_exp1 = df_exp.sort_values(['expiration_date','qty'],ascending = (True, False)).reset_index(drop=True)
 ```
 
-### Round data
+#### Round data
 
 ```python
 remove.qty = remove.qty.round(0)
 ```
 
-### Column arrangement
+#### Column arrangement
 
 ```python
 cols = fcst_df_output.columns
@@ -187,13 +157,13 @@ cols = cols[1:2] + cols[:1] + cols[-1:] + cols[2:33]
 fcst_df_output = fcst_df_output[cols]
 ```
 
-### Convert string to uppercase
+#### Convert string to uppercase
 
 ```python
 pog_map.category = pog_map.category.str.upper()
 ```
 
-### Convert DataFrame column data to list
+#### Convert DataFrame column data to list
 ```python
 list(data_top.index)
 ```
@@ -201,15 +171,15 @@ list(data_top.index)
 
 ## SQL Alchemy
 
-### `to_sql` Function
+#### `to_sql` Function
 [https://www.w3resource.com/pandas/dataframe/dataframe-to_sql.php]()
 
-### SQLite Database viewer
+#### SQLite Database viewer
 [https://inloop.github.io/sqlite-viewer/]()
 
 ## Code Snippets
 
-### Pick List Generator
+#### Pick List Generator
 
 ```python
 output = []
@@ -228,7 +198,7 @@ for i, row in remove.iterrows():
         row_counter = row_counter + 1
 ```
 
-### Map Dictionary
+#### Map Dictionary
 
 ```python
 mydict = {'Bin:A.' : 'AMBIENT',

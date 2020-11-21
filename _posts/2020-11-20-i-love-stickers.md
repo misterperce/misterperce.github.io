@@ -3,7 +3,9 @@ layout: post
 title: I love stickers
 ---
 
-*This was my essay for business school applications.*
+*This was an essay I wrote for business school applications.*
+
+---
 
 I love stickers. I always have. I still vividly remember being maybe six years old and coming across the most beautiful sticker I had ever seen: a car window decal of the American flag sent in the mail by a car insurance company. Made out of thick vinyl with a transparent background, it was the fanciest sticker my six-year-old hands had ever touched. I ran to my father and excitedly showed him the decoration we were going to add to our family sedan.
 

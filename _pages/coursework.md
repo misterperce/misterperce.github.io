@@ -58,7 +58,7 @@ It excites me to display my collection!
 | American Photojournalism (Art History)           | Yale |
 | Women in Modern America                          | Yale |
 | Hip Hop Music and Culture                        | Yale |
-| Science Fiction                                  | Yale |
+| Science Fiction [Literature]                     | Yale |
 | Russian & Soviet Art History 1757 - Present      | Yale |
 | African American Art History 1963 - Present      | Yale |
 

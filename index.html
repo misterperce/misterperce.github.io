@@ -21,6 +21,15 @@ title: "Home"
 </div>
 
 <div class="page">
+<h4> Projects </h4>
+{% for item in site.projects %}
+  <a href="{{ item.url }}">
+    {{ item.title }}</a>
+  <br/>
+{% endfor %}
+</div>
+
+<div class="page">
 <h4> Blog posts </h4>
 {% for post in site.posts %}
   <a href="{{ post.url }}">
@@ -32,5 +41,6 @@ title: "Home"
 <div class="page">
 <h4> Elsewhere </h4>
   <a href="https://www.linkedin.com/in/nancycxia/" target="_blank">LinkedIn</a><br/>
+  <a href="https://github.com/na-che-x/" target="_blank">GitHub</a><br/>
   <!-- <a href="https://www.percepaints.com/" target="_blank">Perce Paints</a><small> · My art website</small> -->
 </div>

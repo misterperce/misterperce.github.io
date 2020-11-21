@@ -25,7 +25,7 @@
 <meta property="og:url" content="http://localhost:4000/example-content/" />
 <meta property="og:site_name" content="na-che-x" />
 <script type="application/ld+json">
-{"@type":"WebPage","headline":"Example content","url":"http://localhost:4000/example-content/","author":{"@type":"Person","name":"Nancy Xia"},"@context":"https://schema.org"}</script>
+{"@type":"WebPage","url":"http://localhost:4000/example-content/","headline":"Example content","author":{"@type":"Person","name":"Nancy Xia"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -63,12 +63,12 @@
 <p>HTML defines a long list of available inline tags, a complete list of which can be found on the <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">Mozilla Developer Network</a>.</p>
 
 <ul>
-  <li><strong>To bold text</strong>, use <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>.</li>
-  <li><em>To italicize text</em>, use <code class="language-plaintext highlighter-rouge">&lt;em&gt;</code>.</li>
-  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-plaintext highlighter-rouge">&lt;abbr&gt;</code>, with an optional <code class="language-plaintext highlighter-rouge">title</code> attribute for the full phrase.</li>
-  <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-plaintext highlighter-rouge">&lt;cite&gt;</code>.</li>
-  <li><del>Deleted</del> text should use <code class="language-plaintext highlighter-rouge">&lt;del&gt;</code> and <ins>inserted</ins> text should use <code class="language-plaintext highlighter-rouge">&lt;ins&gt;</code>.</li>
-  <li>Superscript <sup>text</sup> uses <code class="language-plaintext highlighter-rouge">&lt;sup&gt;</code> and subscript <sub>text</sub> uses <code class="language-plaintext highlighter-rouge">&lt;sub&gt;</code>.</li>
+  <li><strong>To bold text</strong>, use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">strong</span><span class="o">&gt;</span></code>.</li>
+  <li><em>To italicize text</em>, use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">em</span><span class="o">&gt;</span></code>.</li>
+  <li>Abbreviations, like <abbr title="HyperText Markup Langage">HTML</abbr> should use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">abbr</span><span class="o">&gt;</span></code>, with an optional <code class="language-python highlighter-rouge"><span class="n">title</span></code> attribute for the full phrase.</li>
+  <li>Citations, like <cite>— Mark Otto</cite>, should use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">cite</span><span class="o">&gt;</span></code>.</li>
+  <li><del>Deleted</del> text should use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="k">del</span><span class="o">&gt;</span></code> and <ins>inserted</ins> text should use <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">ins</span><span class="o">&gt;</span></code>.</li>
+  <li>Superscript <sup>text</sup> uses <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">sup</span><span class="o">&gt;</span></code> and subscript <sub>text</sub> uses <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">sub</span><span class="o">&gt;</span></code>.</li>
 </ul>
 
 <p>Most of these elements are styled by browsers with few modifications on our part.</p>
@@ -79,7 +79,7 @@
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">Clicking this number[^fn-sample_footnote]</code></pre></figure>
 
-<p>Each footnote needs the <code class="language-plaintext highlighter-rouge">^fn-</code> prefix and a unique ID to be referenced for the footnoted content. The syntax for that list looks something like this:</p>
+<p>Each footnote needs the <code class="language-python highlighter-rouge"><span class="o">^</span><span class="n">fn</span><span class="o">-</span></code> prefix and a unique ID to be referenced for the footnoted content. The syntax for that list looks something like this:</p>
 
 <figure class="highlight"><pre><code class="language-text" data-lang="text">[^fn-sample_footnote]: Handy! Now click the return link to go back.</code></pre></figure>
 
@@ -91,7 +91,7 @@
 
 <h3 id="code">Code</h3>
 
-<p>Inline code is available with the <code class="language-plaintext highlighter-rouge">&lt;code&gt;</code> element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code.</p>
+<p>Inline code is available with the <code class="language-python highlighter-rouge"><span class="o">&lt;</span><span class="n">code</span><span class="o">&gt;</span></code> element. Snippets of multiple lines of code are supported through Rouge. Longer lines will automatically scroll horizontally when needed. You may also use code fencing (triple backticks) for rendering code.</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><span class="c1">// Example can be run directly in your JavaScript console</span>
 
@@ -102,7 +102,7 @@
 <span class="nx">adder</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
 <span class="c1">// &gt; 8</span></code></pre></figure>
 
-<p>You may also optionally show code snippets with line numbers. Add <code class="language-plaintext highlighter-rouge">linenos</code> to the Rouge tags.</p>
+<p>You may also optionally show code snippets with line numbers. Add <code class="language-python highlighter-rouge"><span class="n">linenos</span></code> to the Rouge tags.</p>
 
 <figure class="highlight"><pre><code class="language-js" data-lang="js"><table class="rouge-table"><tbody><tr><td class="gutter gl"><pre class="lineno">1
 2
@@ -241,7 +241,7 @@
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2020-11-20T13:34:30-05:00">2020</time>. All rights reserved.
+          &copy; <time datetime="2020-11-20T20:13:09-05:00">2020</time>. All rights reserved.
         </small>
       </footer>
     </div>

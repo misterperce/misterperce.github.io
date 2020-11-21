@@ -27,9 +27,9 @@
 <meta property="og:url" content="http://localhost:4000/r_cheatsheet" />
 <meta property="og:site_name" content="na-che-x" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-20T13:34:30-05:00" />
+<meta property="article:published_time" content="2020-11-20T20:13:09-05:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"R Cheatsheet","dateModified":"2020-11-20T13:34:30-05:00","datePublished":"2020-11-20T13:34:30-05:00","url":"http://localhost:4000/r_cheatsheet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/r_cheatsheet"},"author":{"@type":"Person","name":"Nancy Xia"},"description":"Call column in dataframe","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/r_cheatsheet"},"url":"http://localhost:4000/r_cheatsheet","dateModified":"2020-11-20T20:13:09-05:00","datePublished":"2020-11-20T20:13:09-05:00","headline":"R Cheatsheet","author":{"@type":"Person","name":"Nancy Xia"},"description":"Call column in dataframe","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -51,30 +51,38 @@
   <h1 class="page-title">R Cheatsheet</h1>
   <h3 id="call-column-in-dataframe">Call column in dataframe</h3>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataframe$column
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">dataframe</span><span class="err">$</span><span class="n">column</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="create-new-dataframe-with-just-col_a-and-col_b">Create new dataframe with just col_a and col_b</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select(df, col_a, col_b)
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">select</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">col_a</span><span class="p">,</span> <span class="n">col_b</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="find-correlation-of-columns-in-dataframe">Find correlation of columns in dataframe</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cor(df2)
-cor(df2, y=NULL, use="everything")
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">cor</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+<span class="n">cor</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">NULL</span><span class="p">,</span> <span class="n">use</span><span class="o">=</span><span class="s">"everything"</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h3 id="find-percentile-given-quantity-mean-and-sd">Find percentile given quantity, mean, and sd</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pnorm(1,3.23,8.47)
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">pnorm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">3.23</span><span class="p">,</span><span class="mf">8.47</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <h3 id="pivot-table">Pivot table</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>returns_sum &lt;- summarize(group_by(returns,stock), avg = mean(return), stddev = sd(return))
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">returns_sum</span> <span class="o">&lt;-</span> <span class="n">summarize</span><span class="p">(</span><span class="n">group_by</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span><span class="n">stock</span><span class="p">),</span> <span class="n">avg</span> <span class="o">=</span> <span class="n">mean</span><span class="p">(</span><span class="k">return</span><span class="p">),</span> <span class="n">stddev</span> <span class="o">=</span> <span class="n">sd</span><span class="p">(</span><span class="k">return</span><span class="p">))</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h3 id="probability-of-succeeding-8-or-more-times-out-of-12-trials-with-success-rate--0587">Probability of succeeding 8 or more times out of 12 trials with success rate = 0.587</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 - pbinom(7,12,0.587)
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="mi">1</span> <span class="o">-</span> <span class="n">pbinom</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mf">0.587</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h3 id="transpose-shape-of-dataframe">Transpose shape of dataframe</h3>
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>df2 &lt;- spread(returns, stock, return)
-</code></pre></div></div>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">df2</span> <span class="o">&lt;-</span> <span class="n">spread</span><span class="p">(</span><span class="n">returns</span><span class="p">,</span> <span class="n">stock</span><span class="p">,</span> <span class="k">return</span><span class="p">)</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </article>
 
@@ -82,7 +90,7 @@ cor(df2, y=NULL, use="everything")
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2020-11-20T13:34:30-05:00">2020</time>. All rights reserved.
+          &copy; <time datetime="2020-11-20T20:13:09-05:00">2020</time>. All rights reserved.
         </small>
       </footer>
     </div>

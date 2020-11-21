@@ -29,7 +29,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-04-04T00:00:00-04:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Importing Robinhood Portfolio Data into Python Pandas","dateModified":"2020-04-04T00:00:00-04:00","datePublished":"2020-04-04T00:00:00-04:00","url":"http://localhost:4000/2020/04/04/robinhood/","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/04/04/robinhood/"},"author":{"@type":"Person","name":"Nancy Xia"},"description":"Introduction","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/04/04/robinhood/"},"url":"http://localhost:4000/2020/04/04/robinhood/","dateModified":"2020-04-04T00:00:00-04:00","datePublished":"2020-04-04T00:00:00-04:00","headline":"Importing Robinhood Portfolio Data into Python Pandas","author":{"@type":"Person","name":"Nancy Xia"},"description":"Introduction","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -75,33 +75,57 @@ Log on to Robinhood via web browser and navigate to your account portfolio. This
 
 <p><img src="/assets/post-imgs/robinhood-network-view.PNG" alt="img" /></p>
 
-<p>Now, you’ll need to refresh the webpage (so that the Network console can pick up the full page load). Find an <code class="language-plaintext highlighter-rouge">orders/</code> file, right click it, and select “Copy Response”. This will put the json resonse in your computer’s clipboard.</p>
+<p>Now, you’ll need to refresh the webpage (so that the Network console can pick up the full page load). Find an <code class="language-python highlighter-rouge"><span class="n">orders</span><span class="o">/</span></code> file, right click it, and select “Copy Response”. This will put the json resonse in your computer’s clipboard.</p>
 
-<p>From here, open a text editor, paste the response, and save it as a .json file locally. I called my file <code class="language-plaintext highlighter-rouge">robinhood_response.</code></p>
+<p>From here, open a text editor, paste the response, and save it as a .json file locally. I called my file <code class="language-python highlighter-rouge"><span class="n">robinhood_response</span><span class="p">.</span></code></p>
 
 <h2 id="importing-into-python-pandas">Importing into Python Pandas</h2>
 
-<p>I use pandas’s included packages <code class="language-plaintext highlighter-rouge">read_json</code> and <code class="language-plaintext highlighter-rouge">json_normalize</code> and extracted the datapoints that I wanted into my DataFrame, <code class="language-plaintext highlighter-rouge">robinhood_response</code>:</p>
+<p>I use pandas’s included packages <code class="language-python highlighter-rouge"><span class="n">read_json</span></code> and <code class="language-python highlighter-rouge"><span class="n">json_normalize</span></code> and extracted the datapoints that I wanted into my DataFrame, <code class="language-python highlighter-rouge"><span class="n">robinhood_response</span></code>:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># read json
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+</pre></td><td class="rouge-code"><pre><span class="c1"># read json
 </span><span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'robinhood_response.json'</span><span class="p">)</span>
 <span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">json_normalize</span><span class="p">(</span><span class="n">robinhood_response</span><span class="p">[</span><span class="s">'results'</span><span class="p">])</span>
 
 <span class="c1"># reset to only columns of interest
 </span><span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">robinhood_response</span><span class="p">[[</span><span class="s">'last_transaction_at'</span><span class="p">,</span> <span class="s">'side'</span><span class="p">,</span><span class="s">'instrument'</span><span class="p">,</span><span class="s">'average_price'</span><span class="p">,</span><span class="s">'quantity'</span><span class="p">]]</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 <h2 id="translating-instrument-urls">Translating Instrument URLs</h2>
 
 <p>In order to translate the intrument urls into the standardized stock symbols, I first pull the unique list of instruments to look up:</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># pull unique instruments for translation to symbol
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+</pre></td><td class="rouge-code"><pre><span class="c1"># pull unique instruments for translation to symbol
 </span><span class="n">instrument_urls</span> <span class="o">=</span> <span class="n">robinhood_response</span><span class="p">[[</span><span class="s">'instrument'</span><span class="p">]]</span>
 <span class="n">instrument_urls</span> <span class="o">=</span> <span class="n">instrument_urls</span><span class="p">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
-<p>Next, I loop through the list of urls, open each one, find the symbol in the json from the URL, and append it to a list. I then take the list of translations and left join (or ‘vlookup’, if you’re more familiar with Excel) it back to the original DataFrame, <code class="language-plaintext highlighter-rouge">robinhood_response</code>.</p>
+<p>Next, I loop through the list of urls, open each one, find the symbol in the json from the URL, and append it to a list. I then take the list of translations and left join (or ‘vlookup’, if you’re more familiar with Excel) it back to the original DataFrame, <code class="language-python highlighter-rouge"><span class="n">robinhood_response</span></code>.</p>
 
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># translate instrument URLs to symbol
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+</pre></td><td class="rouge-code"><pre><span class="c1"># translate instrument URLs to symbol
 </span><span class="n">instrument_translation</span> <span class="o">=</span> <span class="p">[]</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">instrument_urls</span><span class="p">.</span><span class="n">size</span><span class="p">):</span>
@@ -116,12 +140,14 @@ Log on to Robinhood via web browser and navigate to your account portfolio. This
 <span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">robinhood_response</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">'instrument'</span><span class="p">:</span> <span class="s">'url'</span><span class="p">})</span>
 <span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">robinhood_response</span><span class="p">,</span> <span class="n">instrument_translation_df</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s">'url'</span><span class="p">)</span>
 <span class="n">robinhood_response</span> <span class="o">=</span> <span class="n">robinhood_response</span><span class="p">[[</span><span class="s">'last_transaction_at'</span><span class="p">,</span><span class="s">'side'</span><span class="p">,</span><span class="s">'symbol'</span><span class="p">,</span><span class="s">'quantity'</span><span class="p">,</span><span class="s">'average_price'</span><span class="p">]]</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 <p>Lastly, I convert the date into a datetime data type and the units and prices into numeric data types.</p>
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">robinhood_response</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">robinhood_response</span><span class="p">[</span><span class="s">'date'</span><span class="p">]).</span><span class="n">dt</span><span class="p">.</span><span class="n">date</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+</pre></td><td class="rouge-code"><pre><span class="n">robinhood_response</span><span class="p">[</span><span class="s">'date'</span><span class="p">]</span><span class="o">=</span><span class="n">pd</span><span class="p">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">robinhood_response</span><span class="p">[</span><span class="s">'date'</span><span class="p">]).</span><span class="n">dt</span><span class="p">.</span><span class="n">date</span>
 <span class="n">robinhood_response</span><span class="p">[[</span><span class="s">'units'</span><span class="p">,</span><span class="s">'price'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">robinhood_response</span><span class="p">[[</span><span class="s">'units'</span><span class="p">,</span><span class="s">'price'</span><span class="p">]].</span><span class="nb">apply</span><span class="p">(</span><span class="n">pd</span><span class="p">.</span><span class="n">to_numeric</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s">'coerce'</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div></div>
+</pre></td></tr></tbody></table></code></pre></div></div>
 
 </article>
 
@@ -152,7 +178,7 @@ Log on to Robinhood via web browser and navigate to your account portfolio. This
 
       <footer class="footer">
         <small>
-          &copy; <time datetime="2020-11-20T13:34:30-05:00">2020</time>. All rights reserved.
+          &copy; <time datetime="2020-11-20T20:13:09-05:00">2020</time>. All rights reserved.
         </small>
       </footer>
     </div>
