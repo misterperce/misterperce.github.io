@@ -4,7 +4,7 @@
  <title>na-che-x</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-24T11:23:49-05:00</updated>
+ <updated>2020-11-24T17:36:43-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Nancy Xia</name>
@@ -13,7 +13,55 @@
 
  
  <entry>
-   <title>I love stickers</title>
+   <title>Left Align LaTeX</title>
+   <link href="http://localhost:4000/2020/11/24/left-align-katex/"/>
+   <updated>2020-11-24T00:00:00-05:00</updated>
+   <id>http://localhost:4000/2020/11/24/left-align-katex</id>
+   <content type="html">&lt;p&gt;This is kind of silly, but as I have been putting together my &lt;a href=&quot;/multivar&quot;&gt;multivariable calc notes/cheatsheet&lt;/a&gt;, Kramdown’s default LaTeX renderer, \({\KaTeX}\), by default centers any \({\KaTeX}\) written without text surrounding it (i.e. it handled inline fine, but any non-inline \({\KaTeX}\) automatically became centered display \({\KaTeX}\)). And I wanted it to be left-aligned.&lt;/p&gt;
+
+&lt;p&gt;I went through a lot of documentation to see how I could adjust my &lt;code class=&quot;language-python highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;_config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;yml&lt;/span&gt;&lt;/code&gt; to evoke something like \({\KaTeX}\)’s &lt;code class=&quot;language-python highlighter-rouge&quot;&gt;&lt;span class=&quot;n&quot;&gt;fleqn&lt;/span&gt;&lt;/code&gt; option&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; but had no success. Ultimately, adding this to my custom CSS worked for me:&lt;/p&gt;
+
+&lt;div class=&quot;language-css highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
+2
+3
+4
+5
+&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;nc&quot;&gt;.katex-display&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;&lt;span class=&quot;nc&quot;&gt;.katex&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;block&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;text-align&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;left&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;!important&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+	&lt;span class=&quot;nl&quot;&gt;white-space&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;nowrap&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;I figured this out by:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Looking at the \({\KaTeX}\) CSS link: &lt;a href=&quot;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css&quot;&gt;https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Pasting its contents into &lt;a href=&quot;https://www.freeformatter.com/css-beautifier.html&quot;&gt;https://www.freeformatter.com/css-beautifier.html&lt;/a&gt; so I could actually read it&lt;/li&gt;
+  &lt;li&gt;And then Ctrl+F’ing for “center” and grabbing the relevant section&lt;/li&gt;
+  &lt;li&gt;Revising it to “left” :smirking-face:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; &lt;/p&gt;
+
+&lt;p&gt;Here are some really nice posts that I enjoyed reading but did not solve my problem:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cullaloe.com/render-latex-in-jekyll/&quot;&gt;https://cullaloe.com/render-latex-in-jekyll/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://xuc.me/blog/katex-and-jekyll/&quot;&gt;https://xuc.me/blog/katex-and-jekyll/&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gendignoux.com/blog/2020/05/23/katex.html&quot;&gt;https://gendignoux.com/blog/2020/05/23/katex.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
+  &lt;ol&gt;
+    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
+      &lt;p&gt;See &lt;a href=&quot;https://katex.org/docs/options.html&quot;&gt;https://katex.org/docs/options.html&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
+    &lt;/li&gt;
+  &lt;/ol&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>I Love Stickers</title>
    <link href="http://localhost:4000/2020/11/20/i-love-stickers/"/>
    <updated>2020-11-20T00:00:00-05:00</updated>
    <id>http://localhost:4000/2020/11/20/i-love-stickers</id>

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: I love stickers
+title: I Love Stickers
 ---
 
 *This was an essay I wrote for business school applications.*

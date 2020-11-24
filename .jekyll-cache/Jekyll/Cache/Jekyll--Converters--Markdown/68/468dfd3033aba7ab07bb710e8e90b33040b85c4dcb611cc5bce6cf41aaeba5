@@ -1,0 +1,2 @@
+I"”<p>This is kind of silly, but as I have been putting together my <a href="/multivar">multivariable calc notes/cheatsheet</a>, Kramdownâ€™s default LaTeX renderer, \({\KaTeX}\), by default centers any \({\KaTeX}\) written without text surrounding it (i.e. it handled inline fine, but any non-inline \({\KaTeX}\) automatically became centered display \({\KaTeX}\)). And I wanted it to be left-aligned.</p>
+:ET

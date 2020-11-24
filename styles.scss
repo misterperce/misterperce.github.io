@@ -27,3 +27,15 @@
 @import "posts";
 @import "pagination";
 @import "message";
+
+// .katex-display {
+// 	display: block;
+// 	margin: 1em 0;
+// 	text-align: left !important;
+// }
+
+.katex-display>.katex {
+	display: block;
+	text-align: left !important;
+	white-space: nowrap
+}

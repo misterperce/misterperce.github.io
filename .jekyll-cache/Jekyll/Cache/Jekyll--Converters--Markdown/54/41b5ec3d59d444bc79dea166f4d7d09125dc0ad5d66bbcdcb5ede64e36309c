@@ -1,0 +1,77 @@
+I":
+<ul id="markdown-toc">
+  <li><a href="#cross-products" id="markdown-toc-cross-products">Cross Products</a></li>
+  <li><a href="#partial-derivatives" id="markdown-toc-partial-derivatives">Partial Derivatives</a>    <ul>
+      <li><a href="#schwarzs-theorem-symmetry-of-second-derivatives" id="markdown-toc-schwarzs-theorem-symmetry-of-second-derivatives">Schwarz’s Theorem (symmetry of second derivatives)</a></li>
+      <li><a href="#gradients" id="markdown-toc-gradients">Gradients</a></li>
+    </ul>
+  </li>
+  <li><a href="#directional-derivatives" id="markdown-toc-directional-derivatives">Directional Derivatives</a></li>
+</ul>
+
+<p> </p>
+
+<p>Derivative rules: <a href="https://www.mathsisfun.com/calculus/derivatives-rules.html">https://www.mathsisfun.com/calculus/derivatives-rules.html</a></p>
+
+<h3 id="cross-products">Cross Products</h3>
+
+\[\vec{a} = (a_1, a_2, a_3)\]
+
+\[\vec{b} = (b_1, b_2, b_3)\]
+
+\[\vec{a} \times \vec{b} = \begin{bmatrix} a_2b_3 - a_3b_2 \\ a_3b_1 - a_1b_3 \\ a_1b_2 - a_2b_1 \end{bmatrix}\]
+
+<h3 id="partial-derivatives">Partial Derivatives</h3>
+
+\[f_x = \frac{\partial f}{\partial x}(a,b) = \lim\limits_{h \to 0} \frac{f(a+h,b)-f(a,b)}{h}\]
+
+\[f_y = \frac{\partial f}{\partial y}(a,b) = \lim\limits_{h \to 0} \frac{f(a,b+h)-f(a,b)}{h}\]
+
+<h4 id="schwarzs-theorem-symmetry-of-second-derivatives">Schwarz’s Theorem (symmetry of second derivatives)</h4>
+
+\[\begin{aligned} \frac {\partial}{\partial x} \left( \frac{\partial f}{\partial y} \right) \ &amp;= \  
+       \frac {\partial}{\partial y} \left( \frac{\partial f}{\partial x} \right) \\
+       \qquad f_{yx} &amp;= f_{xy}
+\end{aligned}\]
+
+<h4 id="gradients">Gradients</h4>
+
+<p>\(\nabla\) - called ‘Nabla’ or ‘del’</p>
+
+<p>The gradient points in the direction of steepest ascent!</p>
+
+\[\nabla f = \begin{bmatrix}
+    \Large\frac{\partial f}{\partial x} \\
+    \Large\frac{\partial f}{\partial y}
+    \end{bmatrix}\]
+
+<p>Example Gradient:</p>
+
+\[f(x,y) = x^2 sin(y)\]
+
+\[\frac{\partial f}{\partial x} = 2xsin(y)\]
+
+\[\frac{\partial f}{\partial y} = x^2cos(y)\]
+
+\[\nabla f(x,y) = \begin{bmatrix}
+    2xsin(y) \\
+    x^2cos(y)
+    \end{bmatrix}\]
+
+<h3 id="directional-derivatives">Directional Derivatives</h3>
+<p>Given:
+\(\vec{w} = \begin{bmatrix} a \\ b \end{bmatrix}\)</p>
+
+<p>The partial derivative is:</p>
+
+\[\nabla_{\vec{w}}f(x,y) = a \frac{\partial f}{\partial x} + b \frac{\partial f}{\partial y}\]
+
+\[= \begin{bmatrix} a \\ b \end{bmatrix} \cdot \begin{bmatrix}
+    \frac{\partial f}{\partial x} \\
+    \frac{\partial f}{\partial y}
+    \end{bmatrix}\]
+
+\[= \vec{w} \cdot \nabla f\]
+
+<!-- \\(\LaTeX code\\)    -->
+:ET

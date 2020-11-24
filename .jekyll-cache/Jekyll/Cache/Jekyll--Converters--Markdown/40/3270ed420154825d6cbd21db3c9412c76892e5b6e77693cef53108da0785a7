@@ -1,0 +1,41 @@
+I"�<p>This is kind of silly, but as I have been putting together my <a href="/multivar">multivariable calc notes/cheatsheet</a>, Kramdown’s default LaTeX renderer, \({\KaTeX}\), by default centers any \({\KaTeX}\) written without text surrounding it (i.e. it handled inline fine, but any non-inline \({\KaTeX}\) automatically became centered display \({\KaTeX}\)). And I wanted it to be left-aligned.</p>
+
+<p>I went through a lot of documentation to see how I could adjust my <code class="language-python highlighter-rouge"><span class="n">_config</span><span class="p">.</span><span class="n">yml</span></code> to evoke something like \({\KaTeX}\)’s <code class="language-python highlighter-rouge"><span class="n">fleqn</span></code> option<sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote">1</a></sup> but had no success. Ultimately, adding this to my custom CSS worked for me:</p>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+</pre></td><td class="rouge-code"><pre><span class="nc">.katex-display</span><span class="o">&gt;</span><span class="nc">.katex</span> <span class="p">{</span>
+	<span class="nl">display</span><span class="p">:</span> <span class="nb">block</span><span class="p">;</span>
+	<span class="nl">text-align</span><span class="p">:</span> <span class="nb">left</span> <span class="cp">!important</span><span class="p">;</span>
+	<span class="nl">white-space</span><span class="p">:</span> <span class="nb">nowrap</span>
+<span class="p">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<p>I figured this out by:</p>
+<ul>
+  <li>Looking at the \({\KaTeX}\) CSS link: <a href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css</a></li>
+  <li>Pasting its contents into <a href="https://www.freeformatter.com/css-beautifier.html">https://www.freeformatter.com/css-beautifier.html</a> so I could actually read it</li>
+  <li>And then Ctrl+F’ing for “center” and grabbing the relevant section</li>
+  <li>Revising it to “left” :smirking-face:</li>
+</ul>
+
+<p> </p>
+
+<p>Here are some really nice posts that I enjoyed reading but did not solve my problem:</p>
+<ul>
+  <li><a href="https://cullaloe.com/render-latex-in-jekyll/">https://cullaloe.com/render-latex-in-jekyll/</a></li>
+  <li><a href="https://xuc.me/blog/katex-and-jekyll/">https://xuc.me/blog/katex-and-jekyll/</a></li>
+  <li><a href="https://gendignoux.com/blog/2020/05/23/katex.html">https://gendignoux.com/blog/2020/05/23/katex.html</a></li>
+</ul>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>See <a href="https://katex.org/docs/options.html">https://katex.org/docs/options.html</a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+:ET

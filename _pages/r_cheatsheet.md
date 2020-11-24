@@ -3,6 +3,10 @@ title: R Cheatsheet
 layout: page
 ---
 
+* TOC
+{:toc}
+
+
 ### Call column in dataframe
 
 ```r

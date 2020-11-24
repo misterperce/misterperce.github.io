@@ -1,4 +1,14 @@
-I"‡<h3 id="call-column-in-dataframe">Call column in dataframe</h3>
+I"%<ul id="markdown-toc">
+  <li><a href="#call-column-in-dataframe" id="markdown-toc-call-column-in-dataframe">Call column in dataframe</a></li>
+  <li><a href="#create-new-dataframe-with-just-col_a-and-col_b" id="markdown-toc-create-new-dataframe-with-just-col_a-and-col_b">Create new dataframe with just col_a and col_b</a></li>
+  <li><a href="#find-correlation-of-columns-in-dataframe" id="markdown-toc-find-correlation-of-columns-in-dataframe">Find correlation of columns in dataframe</a></li>
+  <li><a href="#find-percentile-given-quantity-mean-and-sd" id="markdown-toc-find-percentile-given-quantity-mean-and-sd">Find percentile given quantity, mean, and sd</a></li>
+  <li><a href="#pivot-table" id="markdown-toc-pivot-table">Pivot table</a></li>
+  <li><a href="#probability-of-succeeding-8-or-more-times-out-of-12-trials-with-success-rate--0587" id="markdown-toc-probability-of-succeeding-8-or-more-times-out-of-12-trials-with-success-rate--0587">Probability of succeeding 8 or more times out of 12 trials with success rate = 0.587</a></li>
+  <li><a href="#transpose-shape-of-dataframe" id="markdown-toc-transpose-shape-of-dataframe">Transpose shape of dataframe</a></li>
+</ul>
+
+<h3 id="call-column-in-dataframe">Call column in dataframe</h3>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
 </pre></td><td class="rouge-code"><pre><span class="n">dataframe</span><span class="o">$</span><span class="n">column</span><span class="w">
