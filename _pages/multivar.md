@@ -8,6 +8,8 @@ katex: yes
 
 &nbsp;
 
+My motivation for learning multivariable calculus was to prepare myself for linear algebra as multivariable is often a prerequisite for linear algebra. My motivation for understanding linear algebra is to be able to utilize the core math necessary for data analytics and machine learning. While I did enjoy going through Khan Academy's course on multivariable calculus, as I got deeper into the course I failed to see how I could use this information for data analytics applications that originally motivated me. So, I only got up to the multivariable chain rule and never to integrals of multivariable functions.
+
 Derivative rules: [https://www.mathsisfun.com/calculus/derivatives-rules.html](https://www.mathsisfun.com/calculus/derivatives-rules.html)
 
 ### Cross Products
@@ -78,4 +80,16 @@ $$ = \vec{w} \cdot \nabla f$$
 
 $$\nabla_{\vec{v}}f(\vec{a}) = \lim\limits_{h \to 0} \frac{f(\vec{a} + h \vec{v})-f(\vec{a})}{h}$$
 
-<!-- \\(\LaTeX code\\)    -->
+### Parametric Velocity and Speed
+
+The speed of a parametric curve is the magnitude of its velocity.
+
+If $$f(t) = (a(t),b(t))$$, then speed is: $$\rVert f'(t)\rVert = \sqrt{a'(t)^2+b'(t)^2}$$
+
+### Multivariable Chain Rule
+
+ $$ \frac{d}{dt} f(x(t),y(t)) = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}$$
+
+With vector:
+
+$$ \nabla f(\vec{v}(t)) \cdot \vec{v}'(t) \\ = \Large\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot \begin{bmatrix} \frac{dx}{dt} \\ \frac{dy}{dt} \end{bmatrix} $$

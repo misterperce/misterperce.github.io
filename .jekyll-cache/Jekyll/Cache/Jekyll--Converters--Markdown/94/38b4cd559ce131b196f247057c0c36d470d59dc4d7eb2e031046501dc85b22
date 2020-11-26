@@ -1,15 +1,21 @@
-I":
-<ul id="markdown-toc">
+I"�<ul id="markdown-toc">
   <li><a href="#cross-products" id="markdown-toc-cross-products">Cross Products</a></li>
   <li><a href="#partial-derivatives" id="markdown-toc-partial-derivatives">Partial Derivatives</a>    <ul>
       <li><a href="#schwarzs-theorem-symmetry-of-second-derivatives" id="markdown-toc-schwarzs-theorem-symmetry-of-second-derivatives">Schwarz’s Theorem (symmetry of second derivatives)</a></li>
       <li><a href="#gradients" id="markdown-toc-gradients">Gradients</a></li>
     </ul>
   </li>
-  <li><a href="#directional-derivatives" id="markdown-toc-directional-derivatives">Directional Derivatives</a></li>
+  <li><a href="#directional-derivatives" id="markdown-toc-directional-derivatives">Directional Derivatives</a>    <ul>
+      <li><a href="#formal-definition-of-directional-derivative" id="markdown-toc-formal-definition-of-directional-derivative">Formal Definition of Directional Derivative</a></li>
+    </ul>
+  </li>
+  <li><a href="#parametric-velocity-and-speed" id="markdown-toc-parametric-velocity-and-speed">Parametric Velocity and Speed</a></li>
+  <li><a href="#multivariable-chain-rule" id="markdown-toc-multivariable-chain-rule">Multivariable Chain Rule</a></li>
 </ul>
 
 <p> </p>
+
+<p>My motivation for learning multivariable calculus was to prepare myself for linear algebra as multivariable is often a prerequisite for linear algebra. My motivation for understanding linear algebra is to be able to utilize the core math necessary for data analytics and machine learning. While I did enjoy going through Khan Academy’s course on multivariable calculus, as I got deeper into the course I failed to see how I could use this information for data analytics applications that originally motivated me. So, I only got up to the multivariable chain rule and never to integrals of multivariable functions.</p>
 
 <p>Derivative rules: <a href="https://www.mathsisfun.com/calculus/derivatives-rules.html">https://www.mathsisfun.com/calculus/derivatives-rules.html</a></p>
 
@@ -62,7 +68,7 @@
 <p>Given:
 \(\vec{w} = \begin{bmatrix} a \\ b \end{bmatrix}\)</p>
 
-<p>The partial derivative is:</p>
+<p>The directional derivative is:</p>
 
 \[\nabla_{\vec{w}}f(x,y) = a \frac{\partial f}{\partial x} + b \frac{\partial f}{\partial y}\]
 
@@ -73,5 +79,21 @@
 
 \[= \vec{w} \cdot \nabla f\]
 
-<!-- \\(\LaTeX code\\)    -->
+<h4 id="formal-definition-of-directional-derivative">Formal Definition of Directional Derivative</h4>
+
+\[\nabla_{\vec{v}}f(\vec{a}) = \lim\limits_{h \to 0} \frac{f(\vec{a} + h \vec{v})-f(\vec{a})}{h}\]
+
+<h3 id="parametric-velocity-and-speed">Parametric Velocity and Speed</h3>
+
+<p>The speed of a parametric curve is the magnitude of its velocity.</p>
+
+<p>If \(f(t) = (a(t),b(t))\), then speed is: \(\rVert f'(t)\rVert = \sqrt{a'(t)^2+b'(t)^2}\)</p>
+
+<h3 id="multivariable-chain-rule">Multivariable Chain Rule</h3>
+
+\[\frac{d}{dt} f(x(t),y(t)) = \frac{\partial f}{\partial x} \frac{dx}{dt} + \frac{\partial f}{\partial y} \frac{dy}{dt}\]
+
+<p>With vector:</p>
+
+\[\nabla f(\vec{v}(t)) \cdot \vec{v}'(t) \\ = \Large\begin{bmatrix} \frac{\partial f}{\partial x} \\ \frac{\partial f}{\partial y} \end{bmatrix} \cdot \begin{bmatrix} \frac{dx}{dt} \\ \frac{dy}{dt} \end{bmatrix}\]
 :ET
