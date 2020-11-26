@@ -1,4 +1,4 @@
-I"y<style>
+I"<<style>
 table th:first-of-type {
     width: 70%;
 }
@@ -41,8 +41,12 @@ table th:nth-of-type(2) {
       <td>Yale</td>
     </tr>
     <tr>
-      <td>Multivariable Calculus</td>
+      <td>Multivariable Calculus (Partially Complete)</td>
       <td>Khan Academy</td>
+    </tr>
+    <tr>
+      <td><a href="https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab">Essence of Linear Algebra</a></td>
+      <td>3Blue1Brown</td>
     </tr>
   </tbody>
 </table>

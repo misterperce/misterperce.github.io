@@ -1,0 +1,28 @@
+I"x<ul id="markdown-toc">
+  <li><a href="#span" id="markdown-toc-span">Span</a></li>
+  <li><a href="#linearly-dependent" id="markdown-toc-linearly-dependent">Linearly Dependent</a></li>
+  <li><a href="#basis" id="markdown-toc-basis">Basis</a></li>
+  <li><a href="#linear-transformation" id="markdown-toc-linear-transformation">Linear transformation</a></li>
+</ul>
+
+<h4 id="span">Span</h4>
+<p>Set of space achievable by scaling a given set of vectors.</p>
+
+<h4 id="linearly-dependent">Linearly Dependent</h4>
+<p>Describes a vector that is redundant in a set of vectors, i.e. does not expand the span of the set of vectors. In contrast, “linearly independent” describes a vector that is additive to the span created by a set of vectors.</p>
+
+<p>Linearly dependent:  \(\vec{u} = a\vec{v} + b\vec{w}\)</p>
+
+<p>Linearly independent: \(\vec{u} \not = a\vec{v} + b\vec{w}\)</p>
+
+<h4 id="basis">Basis</h4>
+<p>The basis of a vector space is a set of linearly independent vectors that span the full space.</p>
+
+<p>We use \(\hat{i}\) (unit vector along x axis) and \(\hat{j}\) (unit vector along y axis) as conventional basis vectors.</p>
+
+<h4 id="linear-transformation">Linear transformation</h4>
+<p>Requires that (1) the transformation preserves lines (i.e. all lines stay lines, and don’t get turned into c) and (2) preserves the origin</p>
+
+\[\begin{bmatrix} \color{blue}{a} \ b \\ c \ d
+\end{bmatrix}\]
+:ET

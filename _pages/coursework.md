@@ -22,7 +22,8 @@ It excites me to display my collection!
 | Math                                |
 |------------------------------------------|------|
 | Calculus of Functions of One Variable II | Yale |
-| Multivariable Calculus | Khan Academy |
+| Multivariable Calculus (Partially Complete)| Khan Academy |
+| [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | 3Blue1Brown |
 
 | Economics                                |
 |------------------------------------------|------|
