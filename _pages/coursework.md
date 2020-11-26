@@ -12,6 +12,7 @@ table th:nth-of-type(2) {
 }
 </style>
 
+
 It excites me to display my collection!
 
 | Data Analysis                                |
