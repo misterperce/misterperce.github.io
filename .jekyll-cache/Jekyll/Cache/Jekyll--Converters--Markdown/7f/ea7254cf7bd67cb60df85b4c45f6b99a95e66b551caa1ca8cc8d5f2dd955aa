@@ -1,9 +1,0 @@
-I":<ul id="markdown-toc">
-  <li><a href="#span" id="markdown-toc-span">Span</a></li>
-</ul>
-
-<h4 id="span">Span</h4>
-<p>Set of space achievable by scaling a given set of vectors.</p>
-
-<p>“Linearly Dependent” – vector that is redundant in a set of vectors, i.e. does not expand the span of the set of vectors</p>
-:ET

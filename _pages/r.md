@@ -1,5 +1,5 @@
 ---
-title: R Cheatsheet
+title: R Reference
 layout: page
 ---
 

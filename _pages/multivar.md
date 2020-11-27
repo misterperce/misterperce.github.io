@@ -1,5 +1,5 @@
 ---
-title: Multivariable Calculus Cheatsheet
+title: Multivariable Calculus Reference
 layout: page
 katex: yes
 ---

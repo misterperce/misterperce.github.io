@@ -1,5 +1,5 @@
 ---
-title: Linear Algebra Cheatsheet
+title: Linear Algebra Reference
 layout: page
 katex: yes
 ---
@@ -24,7 +24,7 @@ The basis of a vector space is a set of linearly independent vectors that span t
 We use $$ \hat{i} $$ (unit vector along x axis) and $$ \hat{j} $$ (unit vector along y axis) as conventional basis vectors.
 
 #### Linear transformation
-Requires that (1) the transformation preserves lines (i.e. all lines stay lines, and don't get turned into c) and (2) preserves the origin
+Requires that (1) the transformation preserves lines (i.e. all lines stay lines, and don't get turned into curves) and (2) preserves the origin)
 
 $$ \large{\begin{bmatrix} \textcolor{cadetblue}{a} & \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} & \textcolor{DarkSlateBlue}{d} \end{bmatrix} \begin{bmatrix} \textcolor{IndianRed}{x} \\ \textcolor{IndianRed}{y} \end{bmatrix} = \textcolor{IndianRed}{x} \begin{bmatrix} \textcolor{cadetblue}{a} \\ \textcolor{cadetblue}{c} \end{bmatrix} + \textcolor{IndianRed}{y} \begin{bmatrix} \textcolor{DarkSlateBlue}{b} \\ \textcolor{DarkSlateBlue}{d} \end{bmatrix} = \begin{bmatrix} \textcolor{cadetblue}{a}\textcolor{IndianRed}{x} +  \textcolor{DarkSlateBlue}{b}\textcolor{IndianRed}{y} \\ \textcolor{cadetblue}{c}\textcolor{IndianRed}{x} + \textcolor{DarkSlateBlue}{d}\textcolor{IndianRed}{y} \end{bmatrix}}
 $$
@@ -45,6 +45,8 @@ $$ \large{\overleftarrow{\overbrace{
 \end{bmatrix}}
 $$
 
+I added an arrow here to remind myself that we read matrix transformations, or multiplications, right to left!
+
 ## Determinants
 
 Determinants measure how area is squished or expanded through a transformation.
@@ -52,6 +54,8 @@ Determinants measure how area is squished or expanded through a transformation.
 Negative determinants means that orientation of space has been inverted (i.e. the plane has flipped); absolute value of determinant will show how much the area of the space has transformed.
 
 $$ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{a} & \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} & \textcolor{DarkSlateBlue}{d} \end{bmatrix}\end{pmatrix} = \textcolor{cadetblue}{a}\textcolor{DarkSlateBlue}{d} - \textcolor{DarkSlateBlue}{b}\textcolor{cadetblue}{c} $$
+
+And for 3d transformations:
 
 $$ det\begin{pmatrix}\begin{bmatrix}
   \textcolor{cadetblue}{a} & \textcolor{DarkSlateBlue}{b} & \textcolor{IndianRed}{c} \\
@@ -64,4 +68,52 @@ $$ det\begin{pmatrix}\begin{bmatrix}
 
 ## Linear System of Equations
 
-[^1]: <br/> ![img](/assets/post-imgs/3b1b_matrix_mult.PNG)
+Identity matrix: $$\begin{bmatrix}
+   1 & 0 \\
+   0 & 1
+\end{bmatrix} $$ = the transformation matrix that does nothing!
+
+Inverse matrix $$A^{-1}$$ is such that $$A^{-1}A = \begin{bmatrix}
+   1 & 0 \\
+   0 & 1
+\end{bmatrix}$$
+
+Given a system of equations, you can use the identity matrix to solve for variables, as long as $$det(A) \not = 0 $$:
+
+$$ \large \begin{aligned}2x + 2y &= -4 \\ 1x + 3y &= -1 \\ \underbrace{\begin{bmatrix} 2 & 2 \\ 1 & 3 \end{bmatrix}}_{A} \underbrace{\begin{bmatrix} x \\ y \end{bmatrix}}_{\vec{x}} &= \underbrace{\begin{bmatrix} -4 \\ -1 \end{bmatrix}}_{\vec{v}} \\ A\vec{x}&=\vec{v} \\ A^{-1}A\vec{x} &= A^{-1}\vec{v} \\ \vec{x} &= A^{-1}\vec{v}
+\end{aligned}$$
+
+## Rank
+
+Rank: number of dimensions in the output of a transformation, or number of dimensions in the column space.
+
+When output of a transformation is a line, it is rank 1. When the output is a plane, it is rank 2.
+
+For example, rank 2 is the highest rank a 2d coordinate system of vectors can achieve.
+
+When the rank is the highest it can be, it is "full rank."
+
+### Column Space
+
+Column Space of $$A$$: set of all possible outputs of $$A\vec{v}$$
+
+The column space lets us understand if a solution set exists for a system of equations.
+
+### Null Space
+
+When a transformation is full rank,  $$\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$ is the only vector that ends up on $$\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$. But, when a transformation loses rank, then multiple vectors are transformed to $$\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$. These vectors that have collapsed to $$\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$ are called the "null space" or "kernel."
+
+The null space lets us understand what the set of all possible solutions can look like.
+
+### Non-square Matricies
+
+* Columns indicate basis vectors / input space
+* Rows indicate "landing spots" for basis vectors
+
+### Dot Product Intuition
+
+$$\begin{aligned}\begin{bmatrix}u_x & u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y \\ \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y\end{aligned}$$
+
+🤯🤯🤯
+
+[^1]: <br/> [![img](/assets/post-imgs/3b1b_matrix_mult.PNG)](https://www.youtube.com/watch?v=XkY2DOUCWMU&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=4&ab_channel=3Blue1Brown)

@@ -1,5 +1,5 @@
 ---
-title: Pandas Cheatsheet
+title: Pandas Reference
 layout: page
 ---
 

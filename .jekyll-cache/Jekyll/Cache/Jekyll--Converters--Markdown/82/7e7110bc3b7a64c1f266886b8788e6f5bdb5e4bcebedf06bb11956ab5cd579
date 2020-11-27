@@ -1,4 +1,4 @@
-I"�<ul id="markdown-toc">
+I""<ul id="markdown-toc">
   <li><a href="#introduction" id="markdown-toc-introduction">Introduction</a>    <ul>
       <li><a href="#span" id="markdown-toc-span">Span</a></li>
       <li><a href="#linearly-dependent" id="markdown-toc-linearly-dependent">Linearly Dependent</a></li>
@@ -8,6 +8,14 @@
   </li>
   <li><a href="#matrix-multiplication" id="markdown-toc-matrix-multiplication">Matrix Multiplication</a></li>
   <li><a href="#determinants" id="markdown-toc-determinants">Determinants</a></li>
+  <li><a href="#linear-system-of-equations" id="markdown-toc-linear-system-of-equations">Linear System of Equations</a></li>
+  <li><a href="#rank" id="markdown-toc-rank">Rank</a>    <ul>
+      <li><a href="#column-space" id="markdown-toc-column-space">Column Space</a></li>
+      <li><a href="#null-space" id="markdown-toc-null-space">Null Space</a></li>
+      <li><a href="#non-square-matricies" id="markdown-toc-non-square-matricies">Non-square Matricies</a></li>
+      <li><a href="#dot-product-intuition" id="markdown-toc-dot-product-intuition">Dot Product Intuition</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="introduction">Introduction</h2>
@@ -28,7 +36,7 @@
 <p>We use \(\hat{i}\) (unit vector along x axis) and \(\hat{j}\) (unit vector along y axis) as conventional basis vectors.</p>
 
 <h4 id="linear-transformation">Linear transformation</h4>
-<p>Requires that (1) the transformation preserves lines (i.e. all lines stay lines, and don’t get turned into c) and (2) preserves the origin</p>
+<p>Requires that (1) the transformation preserves lines (i.e. all lines stay lines, and don’t get turned into curves) and (2) preserves the origin)</p>
 
 \[\large{\begin{bmatrix} \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} &amp; \textcolor{DarkSlateBlue}{d} \end{bmatrix} \begin{bmatrix} \textcolor{IndianRed}{x} \\ \textcolor{IndianRed}{y} \end{bmatrix} = \textcolor{IndianRed}{x} \begin{bmatrix} \textcolor{cadetblue}{a} \\ \textcolor{cadetblue}{c} \end{bmatrix} + \textcolor{IndianRed}{y} \begin{bmatrix} \textcolor{DarkSlateBlue}{b} \\ \textcolor{DarkSlateBlue}{d} \end{bmatrix} = \begin{bmatrix} \textcolor{cadetblue}{a}\textcolor{IndianRed}{x} +  \textcolor{DarkSlateBlue}{b}\textcolor{IndianRed}{y} \\ \textcolor{cadetblue}{c}\textcolor{IndianRed}{x} + \textcolor{DarkSlateBlue}{d}\textcolor{IndianRed}{y} \end{bmatrix}}\]
 
@@ -47,6 +55,8 @@
   \textcolor{cadetblue}{a}\textcolor{DarkSlateBlue}{e} +  \textcolor{cadetblue}{b}\textcolor{DarkSlateBlue}{g} &amp; \textcolor{cadetblue}{a}\textcolor{IndianRed}{f} +  \textcolor{cadetblue}{b}\textcolor{IndianRed}{h} \\ \textcolor{cadetblue}{c}\textcolor{DarkSlateBlue}{e} + \textcolor{cadetblue}{d}\textcolor{DarkSlateBlue}{g} &amp; \textcolor{cadetblue}{c}\textcolor{IndianRed}{f} + \textcolor{cadetblue}{d}\textcolor{IndianRed}{h}
 \end{bmatrix}}\]
 
+<p>I added an arrow here to remind myself that we read matrix transformations, or multiplications, right to left!</p>
+
 <h2 id="determinants">Determinants</h2>
 
 <p>Determinants measure how area is squished or expanded through a transformation.</p>
@@ -55,16 +65,72 @@
 
 \[det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} &amp; \textcolor{DarkSlateBlue}{d} \end{bmatrix}\end{pmatrix} = \textcolor{cadetblue}{a}\textcolor{DarkSlateBlue}{d} - \textcolor{DarkSlateBlue}{b}\textcolor{cadetblue}{c}\]
 
+<p>And for 3d transformations:</p>
+
 \[det\begin{pmatrix}\begin{bmatrix}
   \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} &amp; \textcolor{IndianRed}{c} \\
   \textcolor{cadetblue}{d} &amp; \textcolor{DarkSlateBlue}{e} &amp; \textcolor{IndianRed}{f} \\
   \textcolor{cadetblue}{g} &amp; \textcolor{DarkSlateBlue}{h} &amp; \textcolor{IndianRed}{i}\end{bmatrix}\end{pmatrix}  =
-  a \ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} &amp; \textcolor{DarkSlateBlue}{d} \end{bmatrix}\end{pmatrix} - a \ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} &amp; \textcolor{DarkSlateBlue}{d} \end{bmatrix}\end{pmatrix} + a \ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{a} &amp; \textcolor{DarkSlateBlue}{b} \\ \textcolor{cadetblue}{c} &amp; \textcolor{DarkSlateBlue}{d} \end{bmatrix}\end{pmatrix}\]
+  \textcolor{cadetblue}{a} \ det\begin{pmatrix}\begin{bmatrix} \textcolor{DarkSlateBlue}{e} &amp; \textcolor{IndianRed}{f} \\ \textcolor{DarkSlateBlue}{h} &amp; \textcolor{IndianRed}{i} \end{bmatrix}\end{pmatrix}
+  - \textcolor{DarkSlateBlue}{b} \ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{d} &amp; \textcolor{IndianRed}{f} \\ \textcolor{cadetblue}{g} &amp; \textcolor{IndianRed}{i} \end{bmatrix}\end{pmatrix}
+  + \textcolor{IndianRed}{c} \ det\begin{pmatrix}\begin{bmatrix} \textcolor{cadetblue}{d} &amp; \textcolor{DarkSlateBlue}{e} \\ \textcolor{cadetblue}{g} &amp; \textcolor{DarkSlateBlue}{h} \end{bmatrix}\end{pmatrix}\]
+
+<h2 id="linear-system-of-equations">Linear System of Equations</h2>
+
+<p>Identity matrix: \(\begin{bmatrix}
+   1 &amp; 0 \\
+   0 &amp; 1
+\end{bmatrix}\) = the transformation matrix that does nothing!</p>
+
+<p>Inverse matrix \(A^{-1}\) is such that \(A^{-1}A = \begin{bmatrix}
+   1 &amp; 0 \\
+   0 &amp; 1
+\end{bmatrix}\)</p>
+
+<p>Given a system of equations, you can use the identity matrix to solve for variables, as long as \(det(A) \not = 0\):</p>
+
+\[\large \begin{aligned}2x + 2y &amp;= -4 \\ 1x + 3y &amp;= -1 \\ \underbrace{\begin{bmatrix} 2 &amp; 2 \\ 1 &amp; 3 \end{bmatrix}}_{A} \underbrace{\begin{bmatrix} x \\ y \end{bmatrix}}_{\vec{x}} &amp;= \underbrace{\begin{bmatrix} -4 \\ -1 \end{bmatrix}}_{\vec{v}} \\ A\vec{x}&amp;=\vec{v} \\ A^{-1}A\vec{x} &amp;= A^{-1}\vec{v} \\ \vec{x} &amp;= A^{-1}\vec{v}
+\end{aligned}\]
+
+<h2 id="rank">Rank</h2>
+
+<p>Rank: number of dimensions in the output of a transformation, or number of dimensions in the column space.</p>
+
+<p>When output of a transformation is a line, it is rank 1. When the output is a plane, it is rank 2.</p>
+
+<p>For example, rank 2 is the highest rank a 2d coordinate system of vectors can achieve.</p>
+
+<p>When the rank is the highest it can be, it is “full rank.”</p>
+
+<h3 id="column-space">Column Space</h3>
+
+<p>Column Space of \(A\): set of all possible outputs of \(A\vec{v}\)</p>
+
+<p>The column space lets us understand if a solution set exists for a system of equations.</p>
+
+<h3 id="null-space">Null Space</h3>
+
+<p>When a transformation is full rank,  \(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\) is the only vector that ends up on \(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\). But, when a transformation loses rank, then multiple vectors are transformed to \(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\). These vectors that have collapsed to \(\begin{bmatrix} 0 \\ 0 \end{bmatrix}\) are called the “null space” or “kernel.”</p>
+
+<p>The null space lets us understand what the set of all possible solutions can look like.</p>
+
+<h3 id="non-square-matricies">Non-square Matricies</h3>
+
+<ul>
+  <li>Columns indicate basis vectors / input space</li>
+  <li>Rows indicate “landing spots” for basis vectors</li>
+</ul>
+
+<h3 id="dot-product-intuition">Dot Product Intuition</h3>
+
+\[\begin{aligned}\begin{bmatrix}u_x &amp; u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y \\ \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y\end{aligned}\]
+
+<p>🤯🤯🤯</p>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
     <li id="fn:1" role="doc-endnote">
-      <p><img src="/assets/post-imgs/3b1b_matrix_mult.PNG" alt="img" /> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
+      <p><br /> <a href="https://www.youtube.com/watch?v=XkY2DOUCWMU&amp;list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&amp;index=4&amp;ab_channel=3Blue1Brown"><img src="/assets/post-imgs/3b1b_matrix_mult.PNG" alt="img" /></a> <a href="#fnref:1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
