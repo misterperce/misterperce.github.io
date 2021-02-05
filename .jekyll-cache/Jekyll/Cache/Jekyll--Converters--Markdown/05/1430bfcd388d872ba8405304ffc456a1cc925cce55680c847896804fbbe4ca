@@ -1,0 +1,18 @@
+I"y<p>```
+import pandas as pd
+snippet =
+df = pd.read_json(snippet)
+games = pd.read_json(‘https://gist.githubusercontent.com/Cynosphere/c1e77f77f0e565ddaac2822977961e76/raw/52d1f2d31be7168a0486a3a355e06a2d751bdc44/gameslist.json’)
+games = games.rename(columns={“id”: “application_id”})
+games_short = games[[‘application_id’,’name’,’description’]]
+merge_df = pd.merge(df, games_short, how=’left’, on=[‘application_id’])
+merge_df = merge_df.sort_values([‘total_duration’],ascending = (False)).reset_index(drop=True)
+merge_df[‘duration_in_hours’] = merge_df[‘total_duration’]/3600
+final_df = merge_df[[‘name’,’description’,’duration_in_hours’,’last_played_at’]]
+final_df[‘short_description’] = final_df[‘description’].str.slice(0,100) + ‘…’
+final_df[‘duration_in_hours’] = final_df[‘duration_in_hours’].round(decimals=1)
+final_df = final_df.drop(columns=[‘description’])
+df = final_df[[‘name’, ‘short_description’, ‘duration_in_hours’, ‘last_played_at’]]
+final_df.to_csv(‘discord_duration_data.csv’,index=False)
+print(final_df.to_markdown())</p>
+:ET

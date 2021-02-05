@@ -1,0 +1,190 @@
+I"�1<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+</pre></td><td class="rouge-code"><pre><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="n">pd</span>
+<span class="n">snippet</span> <span class="o">=</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">snippet</span><span class="p">)</span>
+<span class="n">games</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">read_json</span><span class="p">(</span><span class="s">'https://gist.githubusercontent.com/Cynosphere/c1e77f77f0e565ddaac2822977961e76/raw/52d1f2d31be7168a0486a3a355e06a2d751bdc44/gameslist.json'</span><span class="p">)</span>
+<span class="n">games</span> <span class="o">=</span> <span class="n">games</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">"id"</span><span class="p">:</span> <span class="s">"application_id"</span><span class="p">})</span>
+<span class="n">games_short</span> <span class="o">=</span> <span class="n">games</span><span class="p">[[</span><span class="s">'application_id'</span><span class="p">,</span><span class="s">'name'</span><span class="p">,</span><span class="s">'description'</span><span class="p">]]</span>
+<span class="n">merge_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">games_short</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'application_id'</span><span class="p">])</span>
+<span class="n">merge_df</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s">'total_duration'</span><span class="p">],</span><span class="n">ascending</span> <span class="o">=</span> <span class="p">(</span><span class="bp">False</span><span class="p">)).</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">merge_df</span><span class="p">[</span><span class="s">'duration_in_hours'</span><span class="p">]</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[</span><span class="s">'total_duration'</span><span class="p">]</span><span class="o">/</span><span class="mi">3600</span>
+<span class="n">final_df</span> <span class="o">=</span> <span class="n">merge_df</span><span class="p">[[</span><span class="s">'name'</span><span class="p">,</span><span class="s">'description'</span><span class="p">,</span><span class="s">'duration_in_hours'</span><span class="p">,</span><span class="s">'last_played_at'</span><span class="p">]]</span>
+<span class="n">final_df</span><span class="p">[</span><span class="s">'short_description'</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_df</span><span class="p">[</span><span class="s">'description'</span><span class="p">].</span><span class="nb">str</span><span class="p">.</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s">'...'</span>
+<span class="n">final_df</span><span class="p">[</span><span class="s">'duration_in_hours'</span><span class="p">]</span> <span class="o">=</span> <span class="n">final_df</span><span class="p">[</span><span class="s">'duration_in_hours'</span><span class="p">].</span><span class="nb">round</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">final_df</span> <span class="o">=</span> <span class="n">final_df</span><span class="p">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s">'description'</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">final_df</span><span class="p">[[</span><span class="s">'name'</span><span class="p">,</span> <span class="s">'short_description'</span><span class="p">,</span> <span class="s">'duration_in_hours'</span><span class="p">,</span> <span class="s">'last_played_at'</span><span class="p">]]</span>
+<span class="n">final_df</span><span class="p">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s">'discord_duration_data.csv'</span><span class="p">,</span><span class="n">index</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">final_df</span><span class="p">.</span><span class="n">to_markdown</span><span class="p">())</span>
+
+</pre></td></tr></tbody></table></code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: right"> </th>
+      <th style="text-align: left">name</th>
+      <th style="text-align: right">duration_in_hours</th>
+      <th style="text-align: left">last_played_at</th>
+      <th style="text-align: left">short_description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: right">0</td>
+      <td style="text-align: left">Overwatch</td>
+      <td style="text-align: right">1290</td>
+      <td style="text-align: left">2020-11-21 05:50:47.351000+00:00</td>
+      <td style="text-align: left">A stylish sci-fi, team-based, first-person shooter from Blizzard in which players can choose from a …</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">1</td>
+      <td style="text-align: left">Slay the Spire</td>
+      <td style="text-align: right">233.4</td>
+      <td style="text-align: left">2020-11-19 20:31:26.977000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">2</td>
+      <td style="text-align: left">Hades</td>
+      <td style="text-align: right">67.2</td>
+      <td style="text-align: left">2020-11-21 02:26:20.200000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">3</td>
+      <td style="text-align: left">Dota 2</td>
+      <td style="text-align: right">22.4</td>
+      <td style="text-align: left">2019-05-27 03:00:15.826000+00:00</td>
+      <td style="text-align: left">The official free-to-play sequel to the Warcraft III custom scenario that originally popularized the…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">4</td>
+      <td style="text-align: left">The Witcher 3: Wild Hunt</td>
+      <td style="text-align: right">18</td>
+      <td style="text-align: left">2020-04-12 04:40:24.415000+00:00</td>
+      <td style="text-align: left">CD Projekt RED’s third Witcher combines the series’ non-linear storytelling with a sprawling open wo…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">5</td>
+      <td style="text-align: left">Hearthstone</td>
+      <td style="text-align: right">14.5</td>
+      <td style="text-align: left">2020-06-12 06:05:53.873000+00:00</td>
+      <td style="text-align: left">A Free-to-Play collectible card game by Blizzard Entertainment set in the Warcraft universe….</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">6</td>
+      <td style="text-align: left">Ori and the Blind Forest: Definitive Edition</td>
+      <td style="text-align: right">12.5</td>
+      <td style="text-align: left">2019-07-21 22:01:32.687000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">7</td>
+      <td style="text-align: left">Slime Rancher</td>
+      <td style="text-align: right">12.4</td>
+      <td style="text-align: left">2018-12-09 06:38:09.141000+00:00</td>
+      <td style="text-align: left">A vividly coloured and light-hearted game about building a ranch of slime creatures on another plane…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">8</td>
+      <td style="text-align: left">Path of Exile</td>
+      <td style="text-align: right">12.1</td>
+      <td style="text-align: left">2019-01-03 21:24:11.839000+00:00</td>
+      <td style="text-align: left">Path of Exile is a free-to-play PC online action Role-Playing Game set in a dark fantasy world….</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">9</td>
+      <td style="text-align: left">Overcooked! 2</td>
+      <td style="text-align: right">9.5</td>
+      <td style="text-align: left">2020-03-27 23:51:29.808000+00:00</td>
+      <td style="text-align: left">Overcooked! returns in this multiplatform sequel now with online play….</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">10</td>
+      <td style="text-align: left">Stardew Valley</td>
+      <td style="text-align: right">8.2</td>
+      <td style="text-align: left">2020-03-27 23:01:33.459000+00:00</td>
+      <td style="text-align: left">An open-ended country-life RPG in which players can manage their own farm and interact with the surr…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">11</td>
+      <td style="text-align: left">The Elder Scrolls V: Skyrim</td>
+      <td style="text-align: right">6</td>
+      <td style="text-align: left">2018-10-16 03:27:08.041000+00:00</td>
+      <td style="text-align: left">The fifth installment in Bethesda’s Elder Scrolls franchise is set in the eponymous province of Skyr…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">12</td>
+      <td style="text-align: left">nan</td>
+      <td style="text-align: right">3.5</td>
+      <td style="text-align: left">2019-01-03 22:09:29.043000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">13</td>
+      <td style="text-align: left">The Jackbox Party Pack 3</td>
+      <td style="text-align: right">2.3</td>
+      <td style="text-align: left">2020-11-05 01:19:35.899000+00:00</td>
+      <td style="text-align: left">Brainstorm t-shirts, deceive your friends, and survive a night with a deadly trivia host in the thir…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">14</td>
+      <td style="text-align: left">Ashen</td>
+      <td style="text-align: right">1.7</td>
+      <td style="text-align: left">2019-01-07 03:42:48.916000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">15</td>
+      <td style="text-align: left">Don’t Starve Together</td>
+      <td style="text-align: right">1.5</td>
+      <td style="text-align: left">2018-12-18 03:57:29.214000+00:00</td>
+      <td style="text-align: left">Don’t Starve Together is the standalone multiplayer expansion of the uncompromising survival game Do…</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">16</td>
+      <td style="text-align: left">Terraria</td>
+      <td style="text-align: right">1.4</td>
+      <td style="text-align: left">2019-08-18 23:07:22.854000+00:00</td>
+      <td style="text-align: left">The first major 2D entry into the world of “open world” sandbox action-adventure games, Terraria is …</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">17</td>
+      <td style="text-align: left">Black Desert Online</td>
+      <td style="text-align: right">1.4</td>
+      <td style="text-align: left">2019-01-27 04:32:42.751000+00:00</td>
+      <td style="text-align: left">A sandbox action MMORPG….</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">18</td>
+      <td style="text-align: left">BioShock™ Remastered</td>
+      <td style="text-align: right">0.6</td>
+      <td style="text-align: left">2018-10-14 01:10:37.372000+00:00</td>
+      <td style="text-align: left">nan</td>
+    </tr>
+    <tr>
+      <td style="text-align: right">19</td>
+      <td style="text-align: left">BioShock 2</td>
+      <td style="text-align: right">0.2</td>
+      <td style="text-align: left">2018-11-30 03:39:18.544000+00:00</td>
+      <td style="text-align: left">Ten years after the events of the first game, Subject Delta is awoken and must unravel the mystery b…</td>
+    </tr>
+  </tbody>
+</table>
+:ET

@@ -1,70 +1,4 @@
-<!doctype html>
-<html lang="en">
-
-  <!DOCTYPE html>
-<!-- KaTeX requires the use of the HTML5 doctype. Without it, KaTeX may not render properly -->
-<html>
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>
-    
-      Pandas Reference &middot; na-che-x
-    
-  </title>
-
-  <link rel="stylesheet" href="/styles.css">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="/assets/favicon.ico">
-  <link rel="alternate" type="application/atom+xml" title="na-che-x" href="/atom.xml">
-  <link href="https://fonts.googleapis.com/css?family=Gotu|Work+Sans&display=swap" rel="stylesheet">
-  <!-- Begin Jekyll SEO tag v2.6.1 -->
-<meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Pandas Reference" />
-<meta name="author" content="Nancy Xia" />
-<meta property="og:locale" content="en_US" />
-<link rel="canonical" href="http://localhost:4000/pandas_cheatsheet" />
-<meta property="og:url" content="http://localhost:4000/pandas_cheatsheet" />
-<meta property="og:site_name" content="na-che-x" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-26T21:36:02-05:00" />
-<script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Pandas Reference","dateModified":"2020-11-26T21:36:02-05:00","datePublished":"2020-11-26T21:36:02-05:00","url":"http://localhost:4000/pandas_cheatsheet","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pandas_cheatsheet"},"author":{"@type":"Person","name":"Nancy Xia"},"@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-
-
-
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
-
-  <!-- The loading of KaTeX is deferred to speed up page rendering -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
-
-  <!-- To automatically render math in text elements, include the auto-render extension: -->
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
-      onload="renderMathInElement(document.body);"></script>
-
-  </html>
-
-</head>
-
-
-  <body>
-
-    <div class="container content">
-      <header class="masthead">
-        <h3 class="masthead-title">
-          <a href="/" title="Home">na-che-x</a>
-          <br/>
-          <small>Nancy's Personal Website</small>
-        </h3>
-      </header>
-
-      <main>
-        <article class="page">
-  <h1 class="page-title">Pandas Reference</h1>
-  <ul id="markdown-toc">
+I"Ðz<ul id="markdown-toc">
   <li><a href="#input-output" id="markdown-toc-input-output">Input, Output</a>    <ul>
       <li><a href="#current-directory" id="markdown-toc-current-directory">Current Directory</a></li>
       <li><a href="#read-excel--csv" id="markdown-toc-read-excel--csv">Read Excel / CSV</a></li>
@@ -255,8 +189,8 @@
 
 <h4 id="rename-columns">Rename columns</h4>
 
-<div class="language-jsx highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
-</pre></td><td class="rouge-code"><pre><span class="nx">df</span><span class="p">.</span><span class="nx">rename</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span> <span class="nx">axis</span><span class="o">=</span><span class="dl">'</span><span class="s1">index</span><span class="dl">'</span><span class="p">)</span>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+</pre></td><td class="rouge-code"><pre><span class="n">df</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s">"A"</span><span class="p">:</span> <span class="s">"a"</span><span class="p">,</span> <span class="s">"B"</span><span class="p">:</span> <span class="s">"c"</span><span class="p">})</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
 
 <h4 id="coerce-datetime-format">Coerce datetime format</h4>
@@ -381,18 +315,4 @@
 <span class="n">output_df</span> <span class="o">=</span> <span class="n">pd</span><span class="p">.</span><span class="n">merge</span><span class="p">(</span><span class="n">output_df</span><span class="p">,</span> <span class="n">bins1</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s">'left'</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s">'location_id'</span><span class="p">])</span>
 <span class="n">output_df</span> <span class="o">=</span> <span class="n">output_df</span><span class="p">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s">'capacity_subgroup'</span><span class="p">])</span>
 </pre></td></tr></tbody></table></code></pre></div></div>
-
-</article>
-
-      </main>
-
-      <footer class="footer">
-        <small> "To ask the right question is harder than to answer it." <br/>
-          &copy; <time datetime="2020-11-26T21:36:02-05:00">2020</time>. All rights reserved.
-        </small>
-      </footer>
-    </div>
-
-    
-  </body>
-</html>
+:ET

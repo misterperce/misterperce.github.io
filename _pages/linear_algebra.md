@@ -105,15 +105,66 @@ When a transformation is full rank,  $$\begin{bmatrix} 0 \\ 0 \end{bmatrix} $$ i
 
 The null space lets us understand what the set of all possible solutions can look like.
 
-### Non-square Matricies
+## Non-square Matricies
 
 * Columns indicate basis vectors / input space
 * Rows indicate "landing spots" for basis vectors
 
-### Dot Product Intuition
+## Dot Product Intuition
 
-$$\begin{aligned}\begin{bmatrix}u_x & u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y \\ \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y\end{aligned}$$
+$$\begin{aligned}\text{Matrix-vector product:} \begin{bmatrix}u_x & u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y \\ \text{Dot product:} \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &= u_x \cdot x + u_y \cdot y\end{aligned}$$
 
-🤯🤯🤯
+## Cross Product
+
+$$ \vec{v} × \vec{w} = \vec{p} $$
+
+$$ \vec{p} $$ is perpendicular to the parallelogram created by $$ \vec{v} $$ and $$ \vec{w} $$ and $$ \vec{p} $$ has a length equal to the area of the parallelogram. Which perpendicular direction? Use the right hand rule.
+
+<img src="/assets/post-imgs/right_hand_rule_stolen_from_wikipedia.png" width="250"/>
+
+### Cramer's Rule
+
+See [https://www.chilimath.com/lessons/advanced-algebra/cramers-rule-with-three-variables/](https://www.chilimath.com/lessons/advanced-algebra/cramers-rule-with-three-variables/)
+
+## Change of Basis
+
+$$ A^{-1}MA \vec{v}$$
+
+$$ A^{-1} : \text{inverse change of basis matrix} \\
+M: \text{transformation matrix, written in familiar basis terms} \\
+A: \text{change of basis matrix} \\
+\vec{v} : \text{vector in another basis} $$
+
+## Eigenvectors & Eigenvalues
+Eigenvectors are lines(?) in which vectors are simply scaled rather than knocked off their span from a matrix transformation.
+
+Eigenvalues are the scalar that the eigenvectors change by through the matrix transformation.
+
+Eigenvector of a 3d rotation == axis of the rotation!!
+
+$$A\vec{v} = \lambda \vec{v}$$
+
+$$A$$ is the transformation matrix; $$\vec{v}$$ is the eigenvector; $$\lambda$$ is the eigenvalue
+
+Interpretation: matrix multiplication gives the same result as just scaling the vector with some value
+
+$$\begin{aligned} A\vec{v} &= \lambda \vec{v} \\ A\vec{v} - \lambda I\vec{v} &= 0 \\ (A- \lambda I)\vec{v} &= 0 \\  \det(A- \lambda I) & = 0\end{aligned}$$
+
+A set of basis vectors that are also eigenvectors is an eigenbasis.
+
+## Abstract Vector Spaces
+
+Functions are vector-ish and can be transformed linearly.
+
+Derivatives are linear transformations.
+
+Linear algebra concepts have direct analogs in the world of functions:
+
+| Linear Algebra Concepts | Analog to functions |
+|------------------------------------------|------|
+| Linear transformations | Linear operations |
+| Dot products | Inner products |
+| Eignvectors | Eigenfunctions |
+
 
 [^1]: <br/> [![img](/assets/post-imgs/3b1b_matrix_mult.PNG)](https://www.youtube.com/watch?v=XkY2DOUCWMU&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=4&ab_channel=3Blue1Brown)

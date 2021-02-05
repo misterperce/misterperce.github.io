@@ -119,8 +119,8 @@ pog_map.case_pack = pog_map.case_pack.fillna(0)
 
 #### Rename columns
 
-```jsx
-df.rename({1: 2, 2: 4}, axis='index')
+```python
+df.rename(columns={"A": "a", "B": "c"})
 ```
 
 #### Coerce datetime format

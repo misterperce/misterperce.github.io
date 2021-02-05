@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Simple Scripting with AutoHotKey
+published: false
 ---
 
 I'm currently in a role in which I have to navigate and explore a lot of new SQL tables that I'm not familiar with, so I found myself typing "select * from ... limit 100" over and over again. I finally decided to automate that phrase such that if I typed "sss" it would automatically type "select * from  limit 100". I couldn't be happier with the results. This is how I did it:

@@ -29,9 +29,9 @@
 <meta property="og:url" content="http://localhost:4000/linear_algebra" />
 <meta property="og:site_name" content="na-che-x" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-11-26T21:36:02-05:00" />
+<meta property="article:published_time" content="2021-02-04T23:34:03-05:00" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","headline":"Linear Algebra Reference","dateModified":"2020-11-26T21:36:02-05:00","datePublished":"2020-11-26T21:36:02-05:00","url":"http://localhost:4000/linear_algebra","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linear_algebra"},"author":{"@type":"Person","name":"Nancy Xia"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","headline":"Linear Algebra Reference","dateModified":"2021-02-04T23:34:03-05:00","datePublished":"2021-02-04T23:34:03-05:00","url":"http://localhost:4000/linear_algebra","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/linear_algebra"},"author":{"@type":"Person","name":"Nancy Xia"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 
@@ -78,10 +78,17 @@
   <li><a href="#rank" id="markdown-toc-rank">Rank</a>    <ul>
       <li><a href="#column-space" id="markdown-toc-column-space">Column Space</a></li>
       <li><a href="#null-space" id="markdown-toc-null-space">Null Space</a></li>
-      <li><a href="#non-square-matricies" id="markdown-toc-non-square-matricies">Non-square Matricies</a></li>
-      <li><a href="#dot-product-intuition" id="markdown-toc-dot-product-intuition">Dot Product Intuition</a></li>
     </ul>
   </li>
+  <li><a href="#non-square-matricies" id="markdown-toc-non-square-matricies">Non-square Matricies</a></li>
+  <li><a href="#dot-product-intuition" id="markdown-toc-dot-product-intuition">Dot Product Intuition</a></li>
+  <li><a href="#cross-product" id="markdown-toc-cross-product">Cross Product</a>    <ul>
+      <li><a href="#cramers-rule" id="markdown-toc-cramers-rule">Cramer’s Rule</a></li>
+    </ul>
+  </li>
+  <li><a href="#change-of-basis" id="markdown-toc-change-of-basis">Change of Basis</a></li>
+  <li><a href="#eigenvectors--eigenvalues" id="markdown-toc-eigenvectors--eigenvalues">Eigenvectors &amp; Eigenvalues</a></li>
+  <li><a href="#abstract-vector-spaces" id="markdown-toc-abstract-vector-spaces">Abstract Vector Spaces</a></li>
 </ul>
 
 <h2 id="introduction">Introduction</h2>
@@ -180,18 +187,85 @@
 
 <p>The null space lets us understand what the set of all possible solutions can look like.</p>
 
-<h3 id="non-square-matricies">Non-square Matricies</h3>
+<h2 id="non-square-matricies">Non-square Matricies</h2>
 
 <ul>
   <li>Columns indicate basis vectors / input space</li>
   <li>Rows indicate “landing spots” for basis vectors</li>
 </ul>
 
-<h3 id="dot-product-intuition">Dot Product Intuition</h3>
+<h2 id="dot-product-intuition">Dot Product Intuition</h2>
 
-\[\begin{aligned}\begin{bmatrix}u_x &amp; u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y \\ \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y\end{aligned}\]
+\[\begin{aligned}\text{Matrix-vector product:} \begin{bmatrix}u_x &amp; u_y\end{bmatrix}\begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y \\ \text{Dot product:} \begin{bmatrix}u_x \\ u_y\end{bmatrix} \begin{bmatrix}x \\ y\end{bmatrix} &amp;= u_x \cdot x + u_y \cdot y\end{aligned}\]
 
-<p>🤯🤯🤯</p>
+<h2 id="cross-product">Cross Product</h2>
+
+\[\vec{v} × \vec{w} = \vec{p}\]
+
+<p>\(\vec{p}\) is perpendicular to the parallelogram created by \(\vec{v}\) and \(\vec{w}\) and \(\vec{p}\) has a length equal to the area of the parallelogram. Which perpendicular direction? Use the right hand rule.</p>
+
+<p><img src="/assets/post-imgs/right_hand_rule_stolen_from_wikipedia.png" width="250" /></p>
+
+<h3 id="cramers-rule">Cramer’s Rule</h3>
+
+<p>See <a href="https://www.chilimath.com/lessons/advanced-algebra/cramers-rule-with-three-variables/">https://www.chilimath.com/lessons/advanced-algebra/cramers-rule-with-three-variables/</a></p>
+
+<h2 id="change-of-basis">Change of Basis</h2>
+
+\[A^{-1}MA \vec{v}\]
+
+\[A^{-1} : \text{inverse change of basis matrix} \\
+M: \text{transformation matrix, written in familiar basis terms} \\
+A: \text{change of basis matrix} \\
+\vec{v} : \text{vector in another basis}\]
+
+<h2 id="eigenvectors--eigenvalues">Eigenvectors &amp; Eigenvalues</h2>
+<p>Eigenvectors are lines(?) in which vectors are simply scaled rather than knocked off their span from a matrix transformation.</p>
+
+<p>Eigenvalues are the scalar that the eigenvectors change by through the matrix transformation.</p>
+
+<p>Eigenvector of a 3d rotation == axis of the rotation!!</p>
+
+\[A\vec{v} = \lambda \vec{v}\]
+
+<p>\(A\) is the transformation matrix; \(\vec{v}\) is the eigenvector; \(\lambda\) is the eigenvalue</p>
+
+<p>Interpretation: matrix multiplication gives the same result as just scaling the vector with some value</p>
+
+\[\begin{aligned} A\vec{v} &amp;= \lambda \vec{v} \\ A\vec{v} - \lambda I\vec{v} &amp;= 0 \\ (A- \lambda I)\vec{v} &amp;= 0 \\  \det(A- \lambda I) &amp; = 0\end{aligned}\]
+
+<p>A set of basis vectors that are also eigenvectors is an eigenbasis.</p>
+
+<h2 id="abstract-vector-spaces">Abstract Vector Spaces</h2>
+
+<p>Functions are vector-ish and can be transformed linearly.</p>
+
+<p>Derivatives are linear transformations.</p>
+
+<p>Linear algebra concepts have direct analogs in the world of functions:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Linear Algebra Concepts</th>
+      <th>Analog to functions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linear transformations</td>
+      <td>Linear operations</td>
+    </tr>
+    <tr>
+      <td>Dot products</td>
+      <td>Inner products</td>
+    </tr>
+    <tr>
+      <td>Eignvectors</td>
+      <td>Eigenfunctions</td>
+    </tr>
+  </tbody>
+</table>
 
 <div class="footnotes" role="doc-endnotes">
   <ol>
@@ -207,7 +281,7 @@
 
       <footer class="footer">
         <small> "To ask the right question is harder than to answer it." <br/>
-          &copy; <time datetime="2020-11-26T21:36:02-05:00">2020</time>. All rights reserved.
+          &copy; <time datetime="2021-02-04T23:34:03-05:00">2021</time>. All rights reserved.
         </small>
       </footer>
     </div>

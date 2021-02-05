@@ -1,6 +1,7 @@
 ---
 title: Coursework
 layout: page
+published: false
 ---
 
 <style>
@@ -15,18 +16,20 @@ table th:nth-of-type(2) {
 
 It excites me to display my collection!
 
-| Data Analysis                                |
+| Data Analysis                                ||
 |------------------------------------------|------|
 | Econometrics & Data Analysis I           | Yale |
 | Data, Models, and Decisions              | MIT  |
+|Mathematics of Big Data & Machine Learning|MIT|
 
-| Math                                |
+| Math                                ||
 |------------------------------------------|------|
 | Calculus of Functions of One Variable II | Yale |
 | Multivariable Calculus (Partially Complete)| Khan Academy |
 | [Essence of Linear Algebra](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) | 3Blue1Brown |
+|Generative Art (audiovisual art generated using algorithms)|MIT|
 
-| Economics                                |
+| Economics                                ||
 |------------------------------------------|------|
 | Introductory Microeconomics              | Yale |
 | Introductory Macroeconomics              | Yale |
@@ -40,7 +43,7 @@ It excites me to display my collection!
 | Debating Globalization                   | Yale |
 | Economic Analysis for Business Decisions | MIT  |
 
-| Business                                 |
+| Business                                 ||
 |------------------------------------------|------|
 | Communication for Leaders              | MIT  |
 | Organizational Processes               | MIT  |

@@ -4,7 +4,7 @@
  <title>na-che-x</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <link href="http://localhost:4000/"/>
- <updated>2020-11-26T21:36:02-05:00</updated>
+ <updated>2021-02-04T23:34:03-05:00</updated>
  <id>http://localhost:4000</id>
  <author>
    <name>Nancy Xia</name>
@@ -57,93 +57,6 @@
     &lt;/li&gt;
   &lt;/ol&gt;
 &lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>I Love Stickers</title>
-   <link href="http://localhost:4000/2020/11/20/i-love-stickers/"/>
-   <updated>2020-11-20T00:00:00-05:00</updated>
-   <id>http://localhost:4000/2020/11/20/i-love-stickers</id>
-   <content type="html">&lt;p&gt;&lt;em&gt;This was an essay I wrote for business school applications.&lt;/em&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;I love stickers. I always have. I still vividly remember being maybe six years old and coming across the most beautiful sticker I had ever seen: a car window decal of the American flag sent in the mail by a car insurance company. Made out of thick vinyl with a transparent background, it was the fanciest sticker my six-year-old hands had ever touched. I ran to my father and excitedly showed him the decoration we were going to add to our family sedan.&lt;/p&gt;
-
-&lt;p&gt;“No. We are not putting that on the car.” That was the end of the conversation. I was crushed and confused. Why was there a problem with the American flag? After all, I pledged allegiance to this flag every morning in the yard of my elementary school. Weren’t we Americans? Putting that sticker on our car seemed as natural as putting my name at the top of my spelling homework. It would take me decades to finally piece together why my dad said no.
-As an adolescent, I thought my father’s childrearing philosophy of “put your head down, work hard, and don’t cause trouble” was the same one universally imposed upon all children of immigrant parents. I didn’t realize that his version had a dark political tinge to it, at least not until just a few years ago, when he texted me out of the blue, “Today is June 4. I went on a 32-mile&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; run today in memory of that.” The Tiananmen Square Massacre, also known as the June Fourth Incident, was the government killing of thousands of students protesting for Chinese democracy in 1989. I had always known my father was a student in Beijing, but never made the connection that he had been there at the time of the Massacre. I don’t know what kind of involvement he had, but the Incident clearly had an impact on my father.&lt;/p&gt;
-
-&lt;p&gt;Now I realize it had an impact on me, too — on how I grew up. I was taught to prioritize self- preservation over community involvement and to stay away from politics. This meant avoiding taking sides and thus no public signs of patriotism. That was fine with me (aside from the brief grief over that sticker); I enjoyed immersing myself in my studies. I was curious about everything around me and found fulfillment in ingesting swaths of knowledge. My rather conservative upbringing had its benefits: I learned how to be focused and disciplined in my academic and professional pursuits. The results weren’t too bad either; my admission to Yale and my offer letter at Amazon brought both my father and myself great joy.&lt;/p&gt;
-
-&lt;p&gt;While at Amazon, I learned that data was king. Team decisions were made with clearly delineated input metrics and marched towards well-defined output goals. Databases and algorithms seemed to run the whole company and I was in a perpetual state of intellectual high. I loved how complex processes were creatively encapsulated in raw numbers and how those numbers could be mathematically scaled into multi-billion dollar businesses. Elated, I dug deeper and deeper into the data: I moved from an entry-level buying role to a data-heavy supply chain role to a data analyst and engineering role. I had an enormous appetite to learn how Amazon used algorithms to make business decisions at scale, and in return, Amazon kept my bottomless stomach (mind?) well-fed.&lt;/p&gt;
-
-&lt;p&gt;A few years into my feast at Amazon, though, I bit into a rotten apple. While in my second role, a flurry of events followed team leadership change. We had a new director who was incredibly sharp and even more so charismatic. Everyone, including myself, liked him and seemed to have discovered a newfound passion for the business. With the director came his senior management, and collectively they asked sharp questions, created strategic direction, and raised our standards. I was thrilled with the pace at which I was learning and implementing these new business strategies, at least, until I felt that something was amiss. A couple months into the leadership change, I noticed that some of the senior management were grilling certain team members harder than others. I noticed that a new team member seemed to get free passes at his responses in the same business meeting that others were questioned five times over for seemingly no reason.&lt;/p&gt;
-
-&lt;p&gt;After observing this again in a meeting the following week, I pulled a manager whom I trusted aside and asked how he was feeling about the team meetings. He mentioned that he had noticed the inconsistent behavior in how the leaders were asking questions. I then asked him if he would be willing to be a male ally and amplify the voices of those of us, mostly women, who were being made to feel small. He would.&lt;/p&gt;
-
-&lt;p&gt;He never did. In fact, shortly after I asked him to be an ally, he cornered one of our coworkers and bullied her in the same forceful tone that I was hoping he would protect her against. I was shocked and heartbroken. I felt not only alienated by the team leaders, but also disappointed with my “ally.” Not long after that, two female work friends from different teams independently confided to me that they were being managed out. I, again, was shocked and heartbroken as both were senior managers whom I considered mentors. Both were thoughtful and seemed broadly well-liked, and I couldn’t imagine that the root cause was a behavioral issue in either situation. I knew that they both had received strong performance ratings in their most recent annual reviews. I was confused because if they had good scores, why were they being punished for what would only be appropriate for serious performance issues? Both quit Amazon.&lt;/p&gt;
-
-&lt;p&gt;My mind was boggled. I thought favorable inputs at work surely led to favorable outputs at work. I felt that at a forward-thinking tech company that prides itself in its rigor with data, my friends shouldn’t have been made to leave if management decisions were really based on performance metrics. I found myself struggling to process the events going around me, and had to ask myself why.&lt;/p&gt;
-
-&lt;p&gt;I realized that I had constructed some kind of personal utopic paradigm in which events made logical and mathematic sense. Given my upbringing, this wasn’t surprising – my father taught me that the harder I worked, the more I would accomplish. And this simple input/output theorem held true over the course of my academic career and at the beginnings of my professional career: the more I put in, the more I got out. (My upbringing also probably explains my affinity for how consistent and dissectible algorithms are!) But the series of work events forced me to take time to reflect and accept that reality is much more complex and expansive than the reductive paradigm I wanted to exist in. What happened to my friends didn’t make logical sense to me, and I couldn’t help but wonder, colored by the context of my own experience on my team, if bias has something to do with it.&lt;/p&gt;
-
-&lt;p&gt;I took time to console my friends and made a few networking introductions for them and each eventually found a new job. As for myself, I found an exciting opportunity on another team within Amazon that enabled me to not just work with algorithms as I did before, but to create new ones for business decisions. But what more could I do? I continued to feel confused and uneasy. The managers that pushed out my friends and the leaders of my previous team not only still worked for Amazon, but all seemed to be thriving with new leadership positions and promotions. The idea that these leaders could continue to perpetuate team cultures that unfairly discount and discourage high performers concerned me.&lt;/p&gt;
-
-&lt;p&gt;Simply putting my head down and focusing on self-preservation, as my father had taught me, began to feel insufficient; it felt wrong. My dad had once advised me, when I was still in college and applying for my first job, to omit my involvement in women’s organizations from my resume because companies might not agree with gender equality politics. But closing my eyes and ignoring these issues will only enable them to continue.&lt;/p&gt;
-
-&lt;p&gt;The questions that consumed my mind changed from “How can we scale these algorithms? How can we create accurate metrics?” to “How can businesses make decisions that are both good and right for people? What does it take to create a culture shift towards more empathetic and inclusive leadership? How can one significantly impact team culture without authority (yet)?”&lt;/p&gt;
-
-&lt;p&gt;Compared to my father, who grew up poor and under an oppressive government, I am incredibly privileged with my resources and my freedom to express my opinion. I am able to transcend his focus on self-preservation; I have the opportunity to learn how to lead the community around me towards a more egalitarian and empathetic world. It is my duty to speak up and make a difference. I must.&lt;/p&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;June 4 can be written as 6/4. Half of 64 is 32, hence the 32-mile run (64 miles would be too much). My dad is as much of a geek as I am! &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>Simple Scripting with AutoHotKey</title>
-   <link href="http://localhost:4000/2020/04/14/autohotkey/"/>
-   <updated>2020-04-14T00:00:00-04:00</updated>
-   <id>http://localhost:4000/2020/04/14/autohotkey</id>
-   <content type="html">&lt;p&gt;I’m currently in a role in which I have to navigate and explore a lot of new SQL tables that I’m not familiar with, so I found myself typing “select * from … limit 100” over and over again. I finally decided to automate that phrase such that if I typed “sss” it would automatically type “select * from  limit 100”. I couldn’t be happier with the results. This is how I did it:&lt;/p&gt;
-
-&lt;p&gt;I used the program AutoHotKey — my company had this in their software library so I installed it via that.&lt;/p&gt;
-
-&lt;p&gt;My script looks like this:&lt;/p&gt;
-&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;table class=&quot;rouge-table&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;rouge-gutter gl&quot;&gt;&lt;pre class=&quot;lineno&quot;&gt;1
-2
-3
-4
-5
-6
-7
-&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;rouge-code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;c1&quot;&gt;#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
-#Warn ; Enable warnings to assist with detecting common errors.
-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;SendMode&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Input&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Recommended&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scripts&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;due&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;to&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;its&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;superior&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;speed&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;and&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;reliability&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;SetWorkingDir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A_ScriptDir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;%&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Ensures&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;consistent&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;starting&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;directory&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;
-   &lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sss&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;select&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;from&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;limit&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;Return&lt;/span&gt;
-&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;The one gotcha I ran into was having to run, or enable, the script every single time I logged in. Fortunately, I found a solution.&lt;/p&gt;
-
-&lt;p&gt;Original answer here: &lt;a href=&quot;https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304&quot;&gt;https://superuser.com/questions/1281982/autohotkey-script-not-running-on-startup/1306304#1306304&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Edit the startup registry directly:&lt;/p&gt;
-
-&lt;ol&gt;
-  &lt;li&gt;Run regedit&lt;/li&gt;
-  &lt;li&gt;Browse to
-Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run&lt;/li&gt;
-  &lt;li&gt;Add new String Value&lt;/li&gt;
-  &lt;li&gt;For Value Data, input path to your .ahk file&lt;/li&gt;
-&lt;/ol&gt;
 </content>
  </entry>
  
